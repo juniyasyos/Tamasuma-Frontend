@@ -1,0 +1,365 @@
+[
+  {
+    "id": "Aura2022",
+    "name": "Aura22",
+    "visible": true,
+    "date": "2021-12-09",
+    "partners": [
+      "test2",
+      "abc"
+    ],
+    "venue": {
+      "googlemapsurl": "",
+      "name": "Online"
+    },
+    "lastUpdatedOn": {
+      "seconds": 1714470957,
+      "nanoseconds": 193000000
+    },
+    "active": true,
+    "links": {
+      "facebook": "",
+      "feedback": "",
+      "callforspeaker": "",
+      "meetup": "",
+      "registration": "https://iambharat.me",
+      "youtube": "https://youtube.com"
+    },
+    "createdBy": {
+      "id": "bharat_agarwal",
+      "name": "Bharat Agarwal"
+    },
+    "lastUpdatedBy": {
+      "id": "vrijraj_singh",
+      "name": "Vrijraj Singh"
+    },
+    "agendaV2": {
+      "0": [
+        {
+          "starttime": "10:30",
+          "des": "This is Day 1 Agenda 1 description",
+          "endtime": "13:00",
+          "title": "Day 1 - Agenda - 1"
+        },
+        {
+          "title": "Day 1 - Agenda - 2",
+          "des": "Day1 agenda 2",
+          "starttime": "01:30",
+          "endtime": "16:00"
+        }
+      ],
+      "1": [
+        {
+          "endtime": "04:25",
+          "title": "Day 2 ",
+          "starttime": "10:25",
+          "des": "THis is whole day agenda"
+        }
+      ],
+      "2": [
+        {
+          "title": "Day 3 Agenda 1",
+          "des": "Agenda",
+          "endtime": "13:10",
+          "starttime": "11:10"
+        },
+        {
+          "endtime": "16:10",
+          "des": "Agenda 2",
+          "starttime": "02:10",
+          "title": "Day 3 Agenda 2"
+        }
+      ]
+    },
+    "endDate": "2021-12-22",
+    "des": "<p>We'll delve into the strategic steps of transforming your existing projects into lucrative MicroSaaS products ready to conquer the market. We'll dissect the process, uncovering the key elements that empower these conversions. From identifying your project's unique selling points to fine-tuning its scalability</p><p></p><p>pricing strategies, and market fit, we'll craft a comprehensive blueprint for your MicroSaaS success. Together, we'll navigate through the complexities of product development, </p><p></p><p>honing in on what makes your project a solution worth purchasing. With a blend of innovative thinking, market analysis, and strategic planning, we'll unlock the potential of your projects and usher them into the realm of thriving MicroSaaS products. For any query feel free to reach us at techferment@gmail.com</p><p></p><p></p><p>asdasd</p>",
+    "time": {
+      "endtime": "16:00",
+      "starttime": "10:17"
+    },
+    "team": [
+      "bharat_agarwal",
+      "bhaskar",
+      "vrijraj_singh",
+      "vrijraj_27",
+      "test"
+    ],
+    "speakers": [
+      "bharat"
+    ],
+    "image": "https://firebasestorage.googleapis.com/v0/b/myaurapp.appspot.com/o/events%2FAura2022.png?alt=media&token=f8d927b9-0b29-4c21-aa0d-1991a5818fcc",
+    "hashtags": [
+      "Aura",
+      "Aura2022",
+      "2022"
+    ],
+    "createdOn": {
+      "seconds": 1639857383,
+      "nanoseconds": 548000000
+    },
+    "agenda": [
+      {
+        "title": "asdasd",
+        "des": "asdas",
+        "starttime": "02:01",
+        "endtime": "14:00"
+      }
+    ]
+  },
+  {
+    "id": "asd",
+    "team": [
+      "bharat_agarwal"
+    ],
+    "createdOn": {
+      "seconds": 1708203966,
+      "nanoseconds": 415000000
+    },
+    "visible": true,
+    "name": "asdasd",
+    "links": {
+      "youtube": "",
+      "facebook": "",
+      "callforspeaker": "",
+      "meetup": "",
+      "registration": "",
+      "feedback": ""
+    },
+    "lastUpdatedBy": {
+      "id": "",
+      "name": ""
+    },
+    "createdBy": {
+      "name": "Vrijraj Singh",
+      "id": "vrijraj_singh"
+    },
+    "partners": [
+      "abc"
+    ],
+    "image": "",
+    "lastUpdatedOn": "",
+    "agenda": [],
+    "hashtags": [
+      "asdasd",
+      "asd"
+    ],
+    "time": {
+      "starttime": "14:14",
+      "endtime": "14:19"
+    },
+    "speakers": [
+      "bharat"
+    ],
+    "active": true,
+    "des": "asdasdas",
+    "date": "2024-01-30",
+    "venue": {
+      "googlemapsurl": "asdasd",
+      "name": "asd"
+    }
+  },
+  {
+    "id": "asdasd12",
+    "createdOn": {
+      "seconds": 1639855764,
+      "nanoseconds": 865000000
+    },
+    "links": {
+      "feedback": "",
+      "callforspeaker": "",
+      "registration": "",
+      "meetup": "",
+      "youtube": "",
+      "facebook": ""
+    },
+    "des": "",
+    "speakers": [],
+    "lastUpdatedBy": {
+      "id": "",
+      "name": ""
+    },
+    "lastUpdatedOn": "",
+    "endDate": "2021-12-20",
+    "agendaV2": {
+      "0": [
+        {
+          "des": "asd",
+          "endtime": "00:00",
+          "title": "asd",
+          "starttime": "02:58"
+        }
+      ],
+      "1": [
+        {
+          "des": "asd",
+          "starttime": "00:01",
+          "endtime": "01:59",
+          "title": "asd"
+        }
+      ]
+    },
+    "hashtags": [],
+    "name": "asdasda",
+    "createdBy": {
+      "id": "bharat_agarwal",
+      "name": "Bharat Agarwal"
+    },
+    "partners": [],
+    "active": false,
+    "agenda": [],
+    "date": "2021-12-19",
+    "venue": {
+      "googlemapsurl": "",
+      "name": ""
+    },
+    "visible": false,
+    "image": "",
+    "time": {
+      "endtime": "21:16",
+      "starttime": "09:19"
+    },
+    "team": []
+  },
+  {
+    "id": "devfest2020",
+    "createdOn": {
+      "seconds": 1590519998,
+      "nanoseconds": 915000000
+    },
+    "links": {
+      "meetup": "https://myaurapp.web.app",
+      "registration": "https://myaurapp.web.app",
+      "feedback": "https://myaurapp.web.app",
+      "callforspeaker": "https://myaurapp.web.app",
+      "facebook": "https://myaurapp.web.app",
+      "youtube": "https://myaurapp.web.app"
+    },
+    "des": "Much of the web ecosystem focusing on fundamentals and innovating quickly to meet the ever-changing needs of users.\n\nTo help our community build powerful and useful sites, we want to invite you to web.dev LIVE India, a four-day digital event to learn modern web techniques and to connect with other developers.\n\nWhile we are open to welcome everyone and a digital event means anyone can join, the content will be tailored to India/APAC region audience.",
+    "speakers": [
+      "test",
+      "kartik_derasari",
+      "bharat"
+    ],
+    "lastUpdatedOn": {
+      "seconds": 1638203591,
+      "nanoseconds": 337000000
+    },
+    "lastUpdatedBy": {
+      "id": "bharat_agarwal",
+      "name": "Bharat Agarwal"
+    },
+    "endDate": "2021-12-02",
+    "hashtags": [
+      "DEVFEST2020"
+    ],
+    "createdBy": {
+      "id": "vrijraj_singh",
+      "name": "Vrijraj Singh"
+    },
+    "name": "DevFest 2021",
+    "partners": [
+      "abc",
+      "test2",
+      "test3",
+      "test4"
+    ],
+    "agenda": [
+      {
+        "endtime": "10:30",
+        "title": "Welcome Keynote 2",
+        "starttime": "09:30",
+        "des": "In this webinar, you are going to deep dive into the VS Code features which will ultimately speed up the development cycle. In VS Code, there are various features and plugins which are used by pro developers to speed up their development pace."
+      },
+      {
+        "starttime": "15:57",
+        "des": "",
+        "title": "",
+        "endtime": "16:58"
+      },
+      {
+        "starttime": "15:57",
+        "title": "hahah",
+        "des": "heeeehehehehehe",
+        "endtime": "16:58"
+      }
+    ],
+    "active": true,
+    "date": "2021-10-23",
+    "visible": true,
+    "venue": {
+      "googlemapsurl": "Somevanuelink",
+      "name": "ssdfs"
+    },
+    "image": "https://firebasestorage.googleapis.com/v0/b/myaurapp.appspot.com/o/events%2Fdevfest2020.jpg?alt=media&token=6f64f542-1b08-4fb6-b01d-7b8d9f750a99",
+    "time": {
+      "endtime": "14:30",
+      "starttime": "00:30"
+    },
+    "team": [
+      "varsha",
+      "vrijraj27",
+      "vrijraj_singh",
+      "bharat_agarwal",
+      "test",
+      "test1"
+    ]
+  },
+  {
+    "id": "testid",
+    "createdBy": {
+      "name": "Vrijraj Singh",
+      "id": "vrijraj_singh"
+    },
+    "hashtags": [
+      "asdasd",
+      "as",
+      "das",
+      "d"
+    ],
+    "createdOn": {
+      "seconds": 1708109304,
+      "nanoseconds": 46000000
+    },
+    "links": {
+      "feedback": "",
+      "meetup": "asdasd",
+      "registration": "asdada",
+      "facebook": "asdasds",
+      "callforspeaker": "",
+      "youtube": ""
+    },
+    "name": "test event",
+    "lastUpdatedOn": {
+      "seconds": 1708109332,
+      "nanoseconds": 389000000
+    },
+    "time": {
+      "starttime": "02:10",
+      "endtime": "00:09"
+    },
+    "team": [
+      "vrijraj_singh",
+      "vrijraj-ag"
+    ],
+    "partners": [
+      "abc"
+    ],
+    "image": "",
+    "lastUpdatedBy": {
+      "id": "vrijraj_singh",
+      "name": "Vrijraj Singh"
+    },
+    "des": "asdasd a sdas d asd ad",
+    "date": "2024-02-20",
+    "venue": {
+      "name": "asd",
+      "googlemapsurl": ""
+    },
+    "agenda": [],
+    "active": true,
+    "speakers": [
+      "bharat"
+    ],
+    "visible": true
+  }
+]

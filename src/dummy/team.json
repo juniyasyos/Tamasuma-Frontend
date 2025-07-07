@@ -1,0 +1,272 @@
+[
+  {
+    "id": "123",
+    "designation": "123",
+    "uid": "eifHLxFVJnh5yla4f0yJ5PYhAJu1",
+    "socialLinks": {
+      "web": "",
+      "medium": "",
+      "github": "",
+      "linkedin": "",
+      "twitter": "",
+      "facebook": ""
+    },
+    "lastUpdatedOn": {
+      "seconds": 1708111951,
+      "nanoseconds": 220000000
+    },
+    "image": "",
+    "role": "Organizing Team",
+    "name": "123",
+    "email": "test@goo.com",
+    "active": true,
+    "visible": true,
+    "lastUpdatedBy": {
+      "name": "Vrijraj Singh",
+      "id": "vrijraj_singh"
+    },
+    "bio": "",
+    "password": "",
+    "mbnumber": ""
+  },
+  {
+    "id": "bharat_agarwal",
+    "uid": "fX9kT4e3nPQNgzrUDkaTJBJopOB3",
+    "lastUpdatedOn": {
+      "seconds": 1616843650,
+      "nanoseconds": 556000000
+    },
+    "designation": "Developer ",
+    "image": "https://avatars.githubusercontent.com/u/43988371",
+    "role": "Core Team",
+    "email": "agarwalbharat68@gmail.com",
+    "name": "Bharat Agarwal",
+    "visible": true,
+    "active": true,
+    "mbnumber": "",
+    "lastUpdatedBy": {
+      "id": "bharat_agarwal",
+      "name": "Bharat Agarwal"
+    },
+    "socialLinks": {
+      "twitter": "https://twitter.com/bharatagsrwal",
+      "medium": "https://medium.com/@agarwalbharat68/",
+      "facebook": "https://facebook.com/bharatagsrwal",
+      "web": "https://iambharat.me",
+      "linkedin": "https://linkedin.com/in/bharatagsrwal",
+      "github": "https://github.com/bharatagsrwal"
+    },
+    "bio": "Hey, I am Bharat Agarwal"
+  },
+  {
+    "id": "bhaskar",
+    "socialLinks": {
+      "twitter": "",
+      "web": "",
+      "github": "",
+      "linkedin": "",
+      "facebook": "",
+      "medium": ""
+    },
+    "uid": "II3Co8ghfIZNy8PZLNwSvfFC1En1",
+    "email": "connecthaxonic@gmail.com",
+    "createdBy": {
+      "id": "vrijraj_singh",
+      "name": "Vrijraj Singh"
+    },
+    "role": "Volunteer",
+    "visible": false,
+    "mbnumber": "",
+    "lastUpdatedBy": {
+      "id": "bharat_agarwal",
+      "name": "Bharat Agarwal"
+    },
+    "designation": "Team",
+    "name": "Bhaskar",
+    "createdOn": {
+      "seconds": 1636219780,
+      "nanoseconds": 737000000
+    },
+    "password": "",
+    "bio": "",
+    "active": false,
+    "image": "",
+    "lastUpdatedOn": {
+      "seconds": 1639858063,
+      "nanoseconds": 70000000
+    }
+  },
+  {
+    "id": "kartik_derasari",
+    "designation": "Developer",
+    "lastUpdatedOn": {
+      "seconds": 1708111867,
+      "nanoseconds": 274000000
+    },
+    "name": "Kartik Derasari",
+    "visible": true,
+    "role": "Organizing Team",
+    "socialLinks": {
+      "linkedin": "",
+      "medium": "",
+      "web": "",
+      "twitter": "",
+      "github": "",
+      "facebook": ""
+    },
+    "password": "",
+    "uid": "L4Hi6A4XyVhYVmQyuyekOVqyqSJ3",
+    "createdBy": {
+      "id": "test",
+      "name": "Aura "
+    },
+    "createdOn": {
+      "seconds": 1616963367,
+      "nanoseconds": 232000000
+    },
+    "bio": "",
+    "email": "170770107516@socet.edu.in",
+    "image": "",
+    "lastUpdatedBy": {
+      "id": "vrijraj_singh",
+      "name": "Vrijraj Singh"
+    },
+    "active": true,
+    "mbnumber": ""
+  },
+  {
+    "id": "test",
+    "socialLinks": {
+      "medium": "sfs",
+      "twitter": "sdf",
+      "facebook": "asd",
+      "linkedin": "",
+      "github": "sdf",
+      "web": ""
+    },
+    "password": "",
+    "image": "https://raw.githubusercontent.com/gdg-x/aura/master/public/img/icons/android-chrome-512x512.png",
+    "role": "Organizing Team",
+    "lastUpdatedOn": {
+      "seconds": 1591517389,
+      "nanoseconds": 759000000
+    },
+    "name": "Aura ",
+    "uid": "b5px8sSxmpNICTFsRv9LdA1L04g2",
+    "lastUpdatedBy": {
+      "id": "test",
+      "name": "Test Aura"
+    },
+    "visible": true,
+    "active": true,
+    "designation": "Aura Admin",
+    "email": "connectwithaurapp@gmail.com",
+    "mbnumber": "",
+    "bio": "This is Aura Admin Test account."
+  },
+  {
+    "id": "vrijraj-ag",
+    "visible": true,
+    "mbnumber": "",
+    "password": "",
+    "active": true,
+    "designation": "Tester",
+    "lastUpdatedOn": {
+      "seconds": 1708111894,
+      "nanoseconds": 230000000
+    },
+    "createdBy": {
+      "name": "Vrijraj Singh",
+      "id": "vrijraj_singh"
+    },
+    "role": "Organizing Team",
+    "uid": "uVkEB9SThMS3Y2zZdW48LjqPdyg2",
+    "socialLinks": {
+      "facebook": "",
+      "twitter": "",
+      "medium": "",
+      "github": "",
+      "web": "",
+      "linkedin": ""
+    },
+    "name": "Vrijraj-AG",
+    "lastUpdatedBy": {
+      "name": "Vrijraj Singh",
+      "id": "vrijraj_singh"
+    },
+    "createdOn": {
+      "seconds": 1646965882,
+      "nanoseconds": 978000000
+    },
+    "email": "vrijraj.s@agprop.in",
+    "bio": "",
+    "image": ""
+  },
+  {
+    "id": "vrijraj_27",
+    "active": false,
+    "password": "",
+    "bio": "",
+    "image": "",
+    "createdOn": {
+      "seconds": 1616850506,
+      "nanoseconds": 930000000
+    },
+    "lastUpdatedOn": {
+      "seconds": 1616850520,
+      "nanoseconds": 301000000
+    },
+    "lastUpdatedBy": {
+      "id": "bharat_agarwal",
+      "name": "Bharat Agarwal"
+    },
+    "socialLinks": {
+      "github": "",
+      "twitter": "",
+      "linkedin": "",
+      "web": "",
+      "facebook": "",
+      "medium": ""
+    },
+    "role": "Organizing Team",
+    "uid": "ry1iydERzSYgROI6toL7s7ri8283",
+    "createdBy": {
+      "id": "bharat_agarwal",
+      "name": "Bharat Agarwal"
+    },
+    "designation": "Vrijraj",
+    "email": "vrijraj27@gmail.com",
+    "mbnumber": "",
+    "name": "Vrijraj27",
+    "visible": false
+  },
+  {
+    "id": "vrijraj_singh",
+    "designation": "Developer",
+    "lastUpdatedBy": {
+      "name": "Vrijraj Singh",
+      "id": "vrijraj_singh"
+    },
+    "role": "Core Team",
+    "active": true,
+    "visible": true,
+    "lastUpdatedOn": {
+      "seconds": 1708202554,
+      "nanoseconds": 681000000
+    },
+    "uid": "mGmk2ayauCXfxX2cBabGDXugYoI2",
+    "email": "vrijraj2396@gmail.com",
+    "bio": "Vrijraj is a dedicated CTO at agprop and a passionate advocate for community engagement. He actively contributes to the TechFerment community and holds the esteemed title of Google Developers Expert for Firebase and Web Technologies. With a wealth of experience, he has conducted over 300 talks and workshops, sharing his knowledge with various communities. Vrijraj's expertise lies in Web development, Firebase, Google Cloud Platform, and UI/UX Design. He possesses a strong drive for learning new technologies and leveraging them to build innovative solutions. Alongside his professional endeavors, Vrijraj takes pleasure in mentoring individuals and nurturing communities. During his leisure time, he indulges in his love for food and enjoys watching YouTube videos.",
+    "image": "https://avatars1.githubusercontent.com/u/10599101?s=460&u=f6ead2f3f7965b554e0dea844705be8e78075d1a&v=4",
+    "mbnumber": "",
+    "socialLinks": {
+      "facebook": "https://Facebook.com",
+      "web": "",
+      "linkedin": "https://linkedin.com",
+      "twitter": "",
+      "medium": "https://medium.com",
+      "github": "https://github.com"
+    },
+    "name": "Vrijraj Singh"
+  }
+]

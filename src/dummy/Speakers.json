@@ -1,0 +1,114 @@
+[
+  {
+    "id": "bharat",
+    "visible": true,
+    "image": "https://avatars.githubusercontent.com/u/43988371",
+    "lastUpdatedBy": {
+      "name": "Vrijraj Singh",
+      "id": "vrijraj_singh"
+    },
+    "bio": "\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.\"",
+    "mbnumber": "",
+    "company": {
+      "url": "",
+      "name": "GDG Jalandhar"
+    },
+    "socialLinks": {
+      "twitter": "https://twitter.com/bharatagsrwal",
+      "linkedin": "https://linkedin.com/in/bharat101",
+      "github": "https://github.com/agarwalbharat",
+      "web": "https://iambharat.me",
+      "facebook": "https://facebook.com/bharatagsrwal",
+      "medium": "https://medium.com/@agarwalbharat68/"
+    },
+    "name": "Bharat Agarwal",
+    "city": "Chandigarh ",
+    "email": "agarwalbharat68@gmail.com",
+    "designation": "Developer ",
+    "country": "India",
+    "lastUpdatedOn": {
+      "seconds": 1708074938,
+      "nanoseconds": 310000000
+    }
+  },
+  {
+    "id": "kartik_derasari",
+    "createdOn": {
+      "seconds": 1616952085,
+      "nanoseconds": 121000000
+    },
+    "bio": "",
+    "country": "India",
+    "lastUpdatedOn": {
+      "seconds": 1617131598,
+      "nanoseconds": 20000000
+    },
+    "socialLinks": {
+      "linkedin": "",
+      "github": "",
+      "twitter": "",
+      "facebook": "",
+      "medium": "",
+      "web": ""
+    },
+    "company": {
+      "name": "DSC Silver Oak University",
+      "url": "https://dsc.community.dev/silver-oak-university/"
+    },
+    "visible": true,
+    "city": "Ahmedabad",
+    "mbnumber": null,
+    "lastUpdatedBy": {
+      "name": "Vrijraj Singh",
+      "id": "vrijraj_singh"
+    },
+    "image": "",
+    "email": "test@gmail.com",
+    "name": "Kartik Derasari",
+    "createdBy": {
+      "id": "test",
+      "name": "Aura "
+    },
+    "designation": "Community Lead"
+  },
+  {
+    "id": "vrijraj_singh",
+    "socialLinks": {
+      "medium": "",
+      "facebook": "",
+      "web": "",
+      "github": "",
+      "linkedin": "",
+      "twitter": ""
+    },
+    "createdOn": {
+      "seconds": 1616921786,
+      "nanoseconds": 534000000
+    },
+    "createdBy": {
+      "name": "Aura ",
+      "id": "test"
+    },
+    "bio": "",
+    "company": {
+      "url": "https://google.com",
+      "name": "Demo"
+    },
+    "mbnumber": "",
+    "city": "Demo",
+    "lastUpdatedOn": {
+      "seconds": 1708183584,
+      "nanoseconds": 584000000
+    },
+    "email": "test@gmail.com",
+    "country": "Demo",
+    "image": "",
+    "designation": "Demo1",
+    "lastUpdatedBy": {
+      "id": "vrijraj_singh",
+      "name": "Vrijraj Singh"
+    },
+    "visible": true,
+    "name": "Demo1"
+  }
+]

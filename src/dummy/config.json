@@ -1,0 +1,108 @@
+[
+  {
+    "id": "communityguidelines",
+    "codeOfConduct": "When you join our programs, you’re joining a community. And like any growing community, a few ground rules about expected behavior are good for everyone. These guidelines cover both online (e.g. mailing lists, social channels) and offline (e.g. in-person meetups) behavior. Violations of this code of conduct can result in members being removed from the program. Use your best judgment, and if you’d like more clarity or have questions feel free to reach out.",
+    "communityGuidelines": [
+      {
+        "name": "Be nice2",
+        "des": "We're all part of the same community, so be friendly, welcoming, and generally a nice person. Be someone that other people want to be around."
+      },
+      {
+        "name": "Be respectful and constructive",
+        "des": "Remember to be respectful and constructive with your communication to fellow members. Don't get into flamewars, make personal attacks, vent, or rant unconstructively. Everyone should take responsibility for the community and take the initiative to diffuse tension and stop a negative thread as early as possible."
+      },
+      {
+        "name": "Be collaborative",
+        "des": "Work together! We can learn a lot from each other. Share knowledge, and help each other out."
+      }
+    ]
+  },
+  {
+    "id": "footer",
+    "links": {
+      "Developer Console": [
+        {
+          "link": "https://console.developers.google.com/",
+          "linktype": "Developer Console",
+          "linkname": "Google API Console"
+        },
+        {
+          "link": "https://console.cloud.google.com/",
+          "linkname": "Google Play Console",
+          "linktype": "Developer Console"
+        },
+        {
+          "linktype": "Developer Console",
+          "link": "https://console.firebase.google.com/",
+          "linkname": "Firebase Console"
+        }
+      ],
+      "Resources": [
+        {
+          "linkname": "Become a Sponsor",
+          "link": "mailto:devfestpunjab@gmail.com",
+          "linktype": "Resources"
+        }
+      ],
+      "About": [
+        {
+          "linkname": "TechFerment",
+          "link": "dsfdssdfsdfasd",
+          "linktype": "About"
+        }
+      ],
+      "Footer End Session Link": [
+        {
+          "linktype": "Footer End Session Link",
+          "linkname": "Code of Conduct",
+          "link": "https://docs.google.com/document/d/1Wz_w6Z7usMnXKFMpOY4IPbA35twK7Uc4CAxScGDiwOk/edit"
+        },
+        {
+          "linkname": "Community Guidelines",
+          "linktype": "Footer End Session Link",
+          "link": "/about"
+        }
+      ]
+    }
+  },
+  {
+    "id": "general",
+    "meetupLink": "https://meetup.com/GDG-Jalandhar",
+    "toolbarImage": "@/assets/img/donotremove/button.png",
+    "shortName": "",
+    "website": "https://myaurapp.web.app",
+    "learnMoreLink": "http://g.co/dev/gdg",
+    "homeImage": "",
+    "socialLinks": {
+      "youtube": "https://youtube.com",
+      "github": "https://github.com/gdg-jalandhar",
+      "instagram": "https://instagra.com",
+      "twitter": "https://twitter.com/gdgjalandhar",
+      "facebook": "https://facebook.com",
+      "medium": "https://medium.com",
+      "linkedin": "https://www.linkedin.com/company/18048778"
+    },
+    "shortDescription": "TAMASUMA (Talent Mastery & Support Application) adalah platform edu-tech yang dirancang untuk membantu pendidik menemukan bakat, mengembangkan keterampilan, dan meraih impian melalui fitur dan layanan pembelajaran terbaik.",
+    "longDescription": "TAMASUMA adalah platform edukasi berbasis teknologi yang mendukung pengembangan profesional para pendidik melalui pelatihan interaktif, bimbingan ahli, dan komunitas kolaboratif. Kami hadir untuk membantu para pendidik menghadapi tantangan industri 4.0 dengan solusi praktis dan berkelanjutan. Baik bagi pemula maupun profesional berpengalaman, TAMASUMA membuka peluang untuk terus bertumbuh dan menciptakan dampak positif dalam dunia pendidikan.",
+    "email": "connectwithaurapp@gmail.com",
+    "blogs": {
+      "medium": "techferment",
+      "devto": ""
+    },
+    "becomemember": "https://meetup.com/GDG-Jalandhar",
+    "hashtags": [
+      "EduTech",
+      "PendidikBerkembang",
+      "TalentMastery",
+      "BelajarBersama"
+    ],
+    "name": "Tamasuma"
+  },
+  {
+    "id": "partners",
+    "partnersid": [
+      "asf",
+      "asdfg"
+    ]
+  }
+]
