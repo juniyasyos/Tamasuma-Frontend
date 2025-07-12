@@ -40,17 +40,17 @@ const routes = [{
     }
   },
   {
-    path: '/events',
-    name: 'Events',
+    path: '/learnings',
+    name: 'Learnings',
     component: () => import( /* webpackChunkName: "events" */ '../views/EventsPage.vue'),
     meta: {
-      title: 'Events ',
+      title: 'Learnings ',
       color: '#0277bd',
     }
   },
   {
-    path:'/events/:id',
-    name:'CustomEvent',
+    path:'/learnings/:id',
+    name:'CustomLearning',
     component:()=>import( /* webpackChunkName: "CustomEvent" */ '../views/Events/MainView.vue'),
     children: [
       {
