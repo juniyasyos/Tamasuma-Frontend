@@ -25,9 +25,9 @@ export default new Vuex.Store({
         },
       },
       {
-        text: 'Learnings',
-        to: '/learnings',
-        icon: 'mdi-school',
+        text: 'Events',
+        to: '/events',
+        icon: 'mdi-flag-outline',
         meta: {
           showToolbar: true,
           showBottomNav: true
