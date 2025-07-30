@@ -3,195 +3,132 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const routes = [{
+// ✅ Helper: Load component secara dinamis
+const loadView = (view) => () => import(`../views/${view}`)
+
+// ✅ Helper: Tambahkan meta default + custom
+const withMeta = (meta = {}) => ({
+  meta: {
+    color: '#0277bd',
+    ...meta
+  }
+})
+
+// ✅ Halaman dasar yang memiliki pola serupa
+const basicPages = ['Speakers', 'Partners', 'Volunteers', 'Blogs', 'Contact']
+
+const basicRoutes = basicPages.map((page) => ({
+  path: `/${page.toLowerCase()}`,
+  name: page,
+  component: loadView(`${page}Page.vue`),
+  ...withMeta({ title: page })
+}))
+
+// ✅ Route utama
+const routes = [
+  {
     path: '/',
     name: 'Home',
-    component: () => import( /* webpackChunkName: "home" */ '../views/HomePage.vue'),
-    meta: {
-      title: 'Home ',
-      color: '#0277bd',
-    }
+    component: loadView('HomePage.vue'),
+    ...withMeta({ title: 'Home' })
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import( /* webpackChunkName: "about" */ '../views/AboutPage.vue'),
-    meta: {
-      title: 'About ',
-      color: '#0277bd',
-    }
+    component: loadView('AboutPage.vue'),
+    ...withMeta({ title: 'About' })
   },
   {
     path: '/team',
     name: 'Team',
-    component: () => import( /* webpackChunkName: "team-page" */ '../views/TeamPage.vue'),
-    meta: {
-      title: 'Team ',
-      color: '#0277bd',
-    }
+    component: loadView('TeamPage.vue'),
+    ...withMeta({ title: 'Team' })
   },
   {
     path: '/team/:id',
-    name: 'Team Details',
-    component: () => import( /* webpackChunkName: "team-details" */ '../views/Team/TeamDetails.vue'),
-    meta: {
-      title: 'Team Details',
-      color: '#0277bd',
-    }
+    name: 'TeamDetails',
+    component: loadView('Team/TeamDetails.vue'),
+    ...withMeta({ title: 'Team Details' })
   },
   {
     path: '/events',
     name: 'Events',
-    component: () => import( /* webpackChunkName: "events" */ '../views/EventsPage.vue'),
-    meta: {
-      title: 'Events ',
-      color: '#0277bd',
-    }
+    component: loadView('EventsPage.vue'),
+    ...withMeta({ title: 'Events' })
   },
   {
-    path:'/events/:id',
-    name:'CustomEvent',
-    component:()=>import( /* webpackChunkName: "CustomEvent" */ '../views/Events/MainView.vue'),
+    path: '/events/:id',
+    name: 'CustomEvent',
+    component: loadView('Events/MainView.vue'),
     children: [
       {
-        // when /event/:id/ is matched
         path: '/',
-        name:"CustomEventHome",
-        component: ()=> import(/* webpackChunkName: "CustomEventAbout" */ '../views/Events/About.vue'),
-        meta: {
-          isEvent:true
-        }
+        name: 'CustomEventHome',
+        component: loadView('Events/About.vue'),
+        meta: { isEvent: true }
       },
       {
-        // when /event/:id/ is matched
         path: 'speakers',
-        name:"CustomEventSpeaker",
-        component: ()=> import(/* webpackChunkName: "CustomEventSpeaker" */ '../views/Events/Speaker.vue'),
-        meta: {
-          isEvent:true
-        }
+        name: 'CustomEventSpeaker',
+        component: loadView('Events/Speaker.vue'),
+        meta: { isEvent: true }
       },
       {
-        // when /event/:id/ is matched
         path: 'team',
-        name:"CustomEventTeam",
-        component: ()=> import(/* webpackChunkName: "CustomEventTeam" */ '../views/Events/Team.vue'),
-        meta: {
-          isEvent:true
-        }
+        name: 'CustomEventTeam',
+        component: loadView('Events/Team.vue'),
+        meta: { isEvent: true }
       },
       {
-        // when /event/:id/ is matched
         path: 'schedule',
-        name:"CustomEventSchedule",
-        component: ()=> import(/* webpackChunkName: "CustomEventSchedule" */ '../views/Events/Schedule.vue'),
-        meta: {
-          isEvent:true
-        }
+        name: 'CustomEventSchedule',
+        component: loadView('Events/Schedule.vue'),
+        meta: { isEvent: true }
       },
       {
-        // when /event/:id/ is matched
         path: 'partners',
-        name:"CustomEventPartners",
-        component: ()=> import(/* webpackChunkName: "CustomEventPartners" */ '../views/Events/Partners.vue'),
-        meta: {
-          isEvent:true
-        }
+        name: 'CustomEventPartners',
+        component: loadView('Events/Partners.vue'),
+        meta: { isEvent: true }
       },
       {
         path: '',
         name: 'redirectCustomEvent',
-        redirect: {
-          path: 'about'
-        },
-        meta: {
-          isEvent:true
-        }
-      },
+        redirect: 'about',
+        meta: { isEvent: true }
+      }
     ]
   },
   {
-    path: '/speakers',
-    name: 'Speakers',
-    component: () => import( /* webpackChunkName: "speakers" */ '../views/SpeakersPage.vue'),
-    meta: {
-      title: 'Speakers ',
-      color: '#0277bd',
-    }
-  },
-  {
     path: '/speakers/:id',
-    name: 'Speakers-Details',
-    component: () => import( /* webpackChunkName: "speakers-details" */ '../views/Speakers/SpeakerDetails.vue'),
-    meta: {
-      title: 'Speakers ',
-      color: '#0277bd',
-    }
+    name: 'SpeakersDetails',
+    component: loadView('Speakers/SpeakerDetails.vue'),
+    ...withMeta({ title: 'Speakers' })
   },
-  {
-    path: '/volunteers',
-    name: 'Volunteers',
-    component: () => import( /* webpackChunkName: "volunteer" */ '../views/Volunteer.vue'),
-    meta: {
-      title: 'Volunteers ',
-      color: '#0277bd',
-    }
-  },
-  {
-    path: '/partners',
-    name: 'Partners',
-    component: () => import( /* webpackChunkName: "partners" */ '../views/PartnersPage.vue'),
-    meta: {
-      title: 'Partners ',
-      color: '#0277bd',
-    }
-  },
-  {
-    path: '/contact',
-    name: 'Contact',
-    component: () => import( /* webpackChunkName: "contact" */ '../views/ContactPage.vue'),
-    meta: {
-      title: 'Contact ',
-      color: '#0277bd',
-    }
-  },
-  {
-    path: '/blogs',
-    name: 'Blogs',
-    component: () => import( /* webpackChunkName: "blogs" */ '../views/BlogsPage.vue'),
-    meta: {
-      title: 'Blogs ',
-      color: '#0277bd',
-    }
-  },
+  ...basicRoutes,
   {
     path: '*',
-    name: 'redirect',
-    redirect: {
-      path: '/'
-    },
-    meta: {
-      title: `Redirect `,
-      color: "#0277bd",
-    }
-  },
+    name: 'Redirect',
+    redirect: '/',
+    ...withMeta({ title: 'Redirect' })
+  }
 ]
 
+// ✅ Konfigurasi Vue Router
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   scrollBehavior() {
-    return {
-      x: 0,
-      y: 0
-    };
+    return { x: 0, y: 0 }
   },
   routes
 })
 
+// ✅ Middleware sebelum setiap route
 router.beforeEach((to, from, next) => {
   if (to.meta.title) {
-    document.title = to.meta.title + ' | '+ localStorage.getItem('name')
+    const name = localStorage.getItem('name') || 'App'
+    document.title = `${to.meta.title} | ${name}`
   }
   next()
 })
