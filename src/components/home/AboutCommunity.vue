@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    fluid
-    :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-light'"
-  >
+  <v-container fluid :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-light'">
     <v-row align="center">
       <v-col cols="12" md="12" lg="12" sm="12" class="pa-0">
         <div class="ma-1">
@@ -13,27 +10,13 @@
             <p class="google-font mt-0" style="font-size: 90%">
               {{ config.generalConfig.longDescription }}
             </p>
-            <router-link
-              to="/about"
-              class="google-font"
-              style="text-decoration: none"
-              >Learn more about us</router-link
-            >
-            <div class="float-right mb-3">
-              <v-btn
-              v-if="checkExistance(config.generalConfig.meetupLink, 0)"
-              :href="config.generalConfig.meetupLink"
-              target="_blank"
-              depressed
-              dark
-              rounded
-              color
-              class="ma-0 mx-2 google-font mb-2 aura-btn"
-              style="text-transform: capitalize"
-              >Meetup Page</v-btn
-            >
-            </div>
-            
+            <router-link to="/about" class="google-font" style="text-decoration: none">Learn more about us</router-link>
+            <!-- <div class="float-right mb-3">
+              <v-btn v-if="checkExistance(config.generalConfig.meetupLink, 0)" :href="config.generalConfig.meetupLink"
+                target="_blank" depressed dark rounded color class="ma-0 mx-2 google-font mb-2 aura-btn"
+                style="text-transform: capitalize">Meetup Page</v-btn>
+            </div> -->
+
             <br />
           </div>
         </div>

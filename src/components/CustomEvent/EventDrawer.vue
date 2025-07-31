@@ -48,7 +48,7 @@
         </div>
       </v-btn>
     </v-list>
-    <template v-slot:append>
+    <!-- <template v-slot:append>
       <v-btn
         icon
         v-on:click="darkMode"
@@ -59,7 +59,7 @@
         <v-icon v-if="$vuetify.theme.dark">mdi-brightness-7</v-icon>
         <v-icon v-else>mdi-brightness-4</v-icon>
       </v-btn>
-    </template>
+    </template> -->
   </v-navigation-drawer>
 </template>
 

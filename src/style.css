@@ -4,6 +4,23 @@
   font-display: swap;
 }
 
+html,
+body,
+#app {
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
+}
+
+.v-application--wrap {
+  overflow-x: hidden !important;
+}
+
+* {
+  outline: 1px solid red;
+}
+
+
 .google-font {
   font-family: google-sans;
 }
@@ -27,6 +44,7 @@
   background-position: center;
   background-size: 100%;
 }
+
 .aura-btn:hover {
   background-image: url("../src//assets/img/donotremove/button.png") !important;
   background-position: center;
@@ -75,9 +93,11 @@ body {
   width: 300px;
   transition: width 0.3s ease;
 }
+
 .aura-home-card-content {
   transition: 0.3s ease;
 }
+
 .aura-home-cardbar {
   position: absolute;
   top: 10%;
@@ -89,33 +109,41 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease, left 0.3s ease;
 }
+
 .aura-home-card:hover .aura-home-cardbar {
   opacity: 1;
   left: 10px;
 }
+
 .aura-home-card:hover .aura-home-card-content {
   padding-left: 12px;
 }
+
 .aura-event-card {
   height: min-content;
   padding-bottom: 90px;
 }
+
 .aura-event-container {
   position: relative;
 }
+
 .aura-speaker-card {
   position: absolute;
   right: 10px;
   bottom: -50px;
 }
+
 .aura-partner-card {
   position: absolute;
   right: 10px;
   bottom: -25px;
 }
+
 .aura-hidden-x {
   overflow-x: hidden;
 }
+
 .aura-client-logo {
   height: 90px;
   padding: 12px 12px;
@@ -128,12 +156,15 @@ body {
 .aura-darkThemeTextLink {
   color: #fafafa !important;
 }
+
 .aura-lightThemeTextLink {
   color: #3e4551 !important;
 }
+
 .aura-event-whiteText {
   color: white !important;
 }
+
 .aura-event-blackText {
   color: rgba(0, 0, 0, 0.87) !important;
 }
@@ -144,6 +175,7 @@ body {
   /* box-shadow: 0 0 36px rgba(0, 0, 0, 0.1); */
   border-radius: 8px;
 }
+
 .aura-darkModeCardFeatureEvent {
   background-color: #292929 !important;
   /* box-shadow: 0 0 36px rgba(0, 0, 0, 0.1); */

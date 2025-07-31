@@ -17,7 +17,7 @@ const navItemsData = [
   { text: 'About', to: '/about', icon: 'mdi-lightbulb-outline', showToolbar: true, showBottomNav: true },
   { text: 'Contact', to: '/contact', icon: 'mdi-card-account-mail-outline', showToolbar: true, showBottomNav: true },
   { text: 'Partners', to: '/partners', icon: 'mdi-currency-usd', showToolbar: false, showBottomNav: false },
-  { text: 'Blogs', to: '/blogs', icon: 'mdi-newspaper-variant-multiple-outline', showToolbar: true, showBottomNav: false },
+  // { text: 'Blogs', to: '/blogs', icon: 'mdi-newspaper-variant-multiple-outline', showToolbar: true, showBottomNav: false },
 ]
 
 export default new Vuex.Store({

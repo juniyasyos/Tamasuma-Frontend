@@ -15,7 +15,8 @@ const withMeta = (meta = {}) => ({
 })
 
 // ✅ Halaman dasar yang memiliki pola serupa
-const basicPages = ['Speakers', 'Partners', 'Volunteers', 'Blogs', 'Contact']
+// const basicPages = ['Speakers', 'Partners', 'Volunteers', 'Blogs', 'Contact']
+const basicPages = ['Speakers', 'Partners', 'Volunteers', 'Contact']
 
 const basicRoutes = basicPages.map((page) => ({
   path: `/${page.toLowerCase()}`,

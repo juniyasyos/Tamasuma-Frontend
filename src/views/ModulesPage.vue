@@ -39,13 +39,13 @@
     </v-container>
 
     <!-- Past Events (ganti konteks ke modul sebelumnya) -->
-    <v-container fluid class="py-2 mt-8 mb-8">
+    <!-- <v-container fluid class="py-2 mt-8 mb-8">
       <v-row justify="center" align="center">
         <v-col md="12" lg="11" sm="11" xs="12" class="py-0">
           <ModuleList />
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
     <!-- Past Events -->
   </v-main>
 </template>
@@ -57,7 +57,7 @@ export default {
   name: "EventsPage",
   components: {
     FeatureModules: () => import("@/components/home/FeaturesModules"),
-    ModuleList: () => import("@/components/events/PastEvents"),
+    // ModuleList: () => import("@/components/modules/ModuleList"),
   },
   computed: {
     ...mapState(["config"]),

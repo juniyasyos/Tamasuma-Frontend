@@ -4,9 +4,9 @@
       <v-row justify="center" align="center">
         <v-col md="12" lg="11" sm="11" xs="11" class="my-5">
           <HomeStartScreen class="mt-0 mb-15" />
-          <whatwedo />
+          <WhatWeDo />
           <AboutCommunity class="mt-5" />
-          <featureEvents v-if="showFeatureEventStatus" class="my-15" />
+          <featureModules v-if="showFeatureModuleStatus" class="my-15" />
           <partners class="my-15" />
         </v-col>
       </v-row>
@@ -22,13 +22,13 @@ export default {
   name: "HomePage",
   components: {
     HomeStartScreen: () => import("@/components/home/HomeStartScreen"),
-    whatwedo: () => import("@/components/home/WhatWeDo"),
+    WhatWeDo: () => import("@/components/home/WhatWeDo"),
     AboutCommunity: () => import("@/components/home/AboutCommunity"),
-    featureEvents: () => import("@/components/home/FeaturesEvents"),
+    featureModules: () => import("@/components/home/FeaturesModules"),
     partners: () => import("@/components/common/Partners"),
   },
   data: () => ({
-    showFeatureEventStatus: false,
+    showFeatureModuleStatus: false,
   }),
   mounted() {
     this.getFeaturesEvent();
@@ -41,8 +41,8 @@ export default {
       service.getFeaturesEvents().then((res) => {
         res.success
           ? res.data.length > 0
-            ? (this.showFeatureEventStatus = true)
-            : (this.showFeatureEventStatus = false)
+            ? (this.showFeatureModuleStatus = true)
+            : (this.showFeatureModuleStatus = false)
           : (this.notFound = true);
       });
     },

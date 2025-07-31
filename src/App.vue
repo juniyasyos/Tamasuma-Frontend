@@ -1,17 +1,11 @@
 <template>
   <v-app class="aura-hidden-x">
-    <v-snackbar
-      v-model="snackWithButtons"
-      :timeout="timeout"
-      bottom
-      left
-      class="snack"
-    >
+    <v-snackbar v-model="snackWithButtons" :timeout="timeout" bottom left class="snack">
       {{ snackWithBtnText }}
       <v-spacer />
       <v-btn dark text color="#00f500" @click.native="refreshApp">{{
         snackBtnText
-      }}</v-btn>
+        }}</v-btn>
       <v-btn icon @click="snackWithButtons = false">
         <v-icon>mdi-close</v-icon>
       </v-btn>
@@ -25,16 +19,11 @@
       <v-container class="fill-height">
         <v-row justify="center" align="center" class>
           <v-col cols="12" md="12" class="text-center">
-            <v-progress-circular
-              class="aura-text"
-              :width="5"
-              :size="50"
-              color="primary"
-              indeterminate
-            ></v-progress-circular>
-            <p class="google-font mb-0 mt-4" style="font-size: 140%">
+            <v-progress-circular class="aura-text" :width="5" :size="50" color="primary"
+              indeterminate></v-progress-circular>
+            <!-- <p class="google-font mb-0 mt-4" style="font-size: 140%">
               Based on <span class="aura-text">Project Aura</span>
-            </p>
+            </p> -->
           </v-col>
         </v-row>
       </v-container>
@@ -50,9 +39,7 @@
             <p class="google-font">
               Follow the Docs for
               <a target="_blank" href="https://github.com/gdg-x/aura">Aura</a> &
-              <a target="_blank" href="https://github.com/gdg-x/aura-admin"
-                >Aura Admin</a
-              >
+              <a target="_blank" href="https://github.com/gdg-x/aura-admin">Aura Admin</a>
             </p>
           </v-col>
         </v-row>

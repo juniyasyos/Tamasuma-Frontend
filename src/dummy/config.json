@@ -20,47 +20,52 @@
   {
     "id": "footer",
     "links": {
-      "Developer Console": [
+      "Tamasuma Platform": [
         {
-          "link": "https://console.developers.google.com/",
-          "linktype": "Developer Console",
-          "linkname": "Google API Console"
+          "link": "/dashboard",
+          "linktype": "Tamasuma Platform",
+          "linkname": "Tamasuma Dashboard"
         },
         {
-          "link": "https://console.cloud.google.com/",
-          "linkname": "Google Play Console",
-          "linktype": "Developer Console"
+          "link": "/modules",
+          "linkname": "Tamasuma Modules",
+          "linktype": "Tamasuma Platform"
         },
         {
-          "linktype": "Developer Console",
-          "link": "https://console.firebase.google.com/",
-          "linkname": "Firebase Console"
+          "link": "/studio",
+          "linkname": "Tamasuma Studio",
+          "linktype": "Tamasuma Platform"
         }
       ],
       "Resources": [
         {
-          "linkname": "Become a Sponsor",
-          "link": "mailto:devfestpunjab@gmail.com",
+          "linkname": "Support Us",
+          "link": "mailto:support@tamasuma.local",
           "linktype": "Resources"
         }
       ],
       "About": [
         {
-          "linkname": "TechFerment",
-          "link": "dsfdssdfsdfasd",
-          "linktype": "About"
+          "linkname": "About Tamasuma",
+          "link": "/about",
+          "linktype": "about"
+        },
+        {
+          "linkname": "Tamasuma Team",
+          "link": "/team",
+          "linktype": "Team"
         }
       ],
-      "Footer End Session Link": [
+      "Legal & Guidelines": [
         {
-          "linktype": "Footer End Session Link",
+          "linktype": "Legal & Guidelines",
           "linkname": "Code of Conduct",
-          "link": "https://docs.google.com/document/d/1Wz_w6Z7usMnXKFMpOY4IPbA35twK7Uc4CAxScGDiwOk/edit"
+          "link": "/legal/code-of-conduct"
         },
         {
           "linkname": "Community Guidelines",
-          "linktype": "Footer End Session Link",
-          "link": "/about"
+          "linktype": "Legal & Guidelines",
+          "link": "/legal/community-guidelines"
         }
       ]
     }
@@ -84,7 +89,7 @@
     },
     "shortDescription": "TAMASUMA (Talent Mastery & Support Application) adalah platform edu-tech yang dirancang untuk membantu pendidik menemukan bakat, mengembangkan keterampilan, dan meraih impian melalui fitur dan layanan pembelajaran terbaik.",
     "longDescription": "TAMASUMA adalah platform edukasi berbasis teknologi yang mendukung pengembangan profesional para pendidik melalui pelatihan interaktif, bimbingan ahli, dan komunitas kolaboratif. Kami hadir untuk membantu para pendidik menghadapi tantangan industri 4.0 dengan solusi praktis dan berkelanjutan. Baik bagi pemula maupun profesional berpengalaman, TAMASUMA membuka peluang untuk terus bertumbuh dan menciptakan dampak positif dalam dunia pendidikan.",
-    "email": "connectwithaurapp@gmail.com",
+    "email": "tamasuma@gmail.com",
     "blogs": {
       "medium": "techferment",
       "devto": ""
