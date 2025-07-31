@@ -18,53 +18,24 @@
           innovation, open source, and ML and AI can propel enterprises forward
           and solve the big problems that impact all of us.
         </p>
-        <router-link
-          to="/events"
-          text
-          color="#4C4A78"
-          class="ma-0 google-font mb-0"
-          style="
+        <router-link to="/events" text color="#4C4A78" class="ma-0 google-font mb-0" style="
             border-radius: 5px;
             text-transform: capitalize;
             text-decoration: none;
             color: #4c4a78;
-          "
-          >See More</router-link
-        >
+          ">See More</router-link>
       </v-col>
       <v-col cols="12" md="12" lg="12" sm="12" class="mt-0 px-0">
         <v-container fluid class="px-2 py-0">
           <v-row v-if="showLoader" class="">
-            <v-col
-              v-for="i in 4"
-              :key="i"
-              md="3"
-              lg="3"
-              sm="6"
-              cols="6"
-              class="pa-2"
-            >
-              <v-sheet
-                :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`"
-                class=""
-              >
-                <v-skeleton-loader
-                  class="mx-auto"
-                  type="article"
-                ></v-skeleton-loader>
+            <v-col v-for="i in 4" :key="i" md="3" lg="3" sm="6" cols="6" class="pa-2">
+              <v-sheet :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`" class="">
+                <v-skeleton-loader class="mx-auto" type="article"></v-skeleton-loader>
               </v-sheet>
             </v-col>
           </v-row>
           <v-row v-else class="no-gutters pa-0 ma-0">
-            <v-col
-              md="3"
-              lg="3"
-              sm="6"
-              cols="6"
-              class="pa-1 ma-0"
-              v-for="(item, i) in eventsData.slice(0, 4)"
-              :key="i"
-            >
+            <v-col md="3" lg="3" sm="6" cols="6" class="pa-1 ma-0" v-for="(item, i) in eventsData.slice(0, 4)" :key="i">
               <!-- {{item}} -->
               <eventCard :data="{ data: item }" />
             </v-col>

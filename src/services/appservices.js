@@ -1,223 +1,90 @@
 import dummyReader from "../dummy/dummyReader";
 import firebase from "@/config/firebase";
 
-let appservice = {
-  getTeam: () => {
-    return new Promise((resolve) => {
-      const team = dummyReader.getTeam();
-      resolve({
-        success: true,
-        data: team,
-      });
-    });
+// 🔧 Utility: Untuk data dummy
+const createDummyResolver = (fn) => async (...args) => {
+  const data = fn(...args);
+  return {
+    success: !!data && (Array.isArray(data) ? data.length > 0 : true),
+    data: data || (Array.isArray(data) ? [] : {}),
+  };
+};
+
+// 🔧 Utility: Untuk fetch API eksternal
+const fetchWrapper = async (url) => {
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    return { success: true, data };
+  } catch (e) {
+    return Promise.reject(e);
+  }
+};
+
+const appservice = {
+  // Dummy Readers
+  getTeam: createDummyResolver(dummyReader.getTeam),
+  getTeamMember: async (id) => {
+    const team = dummyReader.getTeam();
+    const member = team.find((item) => item.id === id);
+    return {
+      success: !!member,
+      data: member || {},
+    };
+  },
+  getEvent: createDummyResolver(dummyReader.getEvent),
+  getAllEvents: createDummyResolver(dummyReader.getEvents),
+  getFeaturesEvents: createDummyResolver(dummyReader.getFeatureEvents),
+  getAllCustomEvents: createDummyResolver(dummyReader.getEvents),
+  getAllSpeakers: createDummyResolver(dummyReader.getSpeakers),
+  getSpeaker: createDummyResolver(dummyReader.getSpeaker),
+  getAllPartners: createDummyResolver(dummyReader.getPartners),
+  getPartner: async (id) => {
+    const partners = dummyReader.getPartners();
+    const partner = partners.find((p) => p.id === id);
+    return {
+      success: !!partner,
+      data: partner || {},
+    };
+  },
+  getAllConfig: async () => {
+    const config = dummyReader.getConfig();
+    return {
+      success: !!config && config.length > 0,
+      data: config || [],
+    };
   },
 
-  getTeamMember: (id) => {
-    return new Promise((resolve) => {
-      const team = dummyReader.getTeam();
-      const member = team.find((item) => item.id === id);
-      resolve({
-        success: !!member,
-        data: member || {},
-      });
-    });
-  },
-
-  getAllEvents: () => {
-    return new Promise((resolve) => {
-      const events = dummyReader.getEvents();
-      resolve({
-        success: true,
-        data: events,
-      });
-    });
-  },
-
-  getAllCustomEvents: () => {
-    return new Promise((resolve) => {
-      const events = dummyReader.getEvents(); // gunakan yang sama dulu
-      resolve({
-        success: true,
-        data: events,
-      });
-    });
-  },
-
-  getEvent: (id) => {
-    return new Promise((resolve) => {
-      const event = dummyReader.getEvent(id);
-      resolve({
-        success: !!event,
-        data: event || {},
-      });
-    });
-  },
-
-  getAllSpeakers: () => {
-    return new Promise((resolve) => {
-      const speakers = dummyReader.getSpeakers();
-      resolve({
-        success: true,
-        data: speakers,
-      });
-    });
-  },
-
-  getSpeaker: (id) => {
-    return new Promise((resolve) => {
-      const speaker = dummyReader.getSpeaker(id);
-      resolve({
-        success: !!speaker,
-        data: speaker || {},
-      });
-    });
-  },
-
-  getFeaturesEvents: () => {
-    return new Promise((resolve, reject) => {
-      try {
-        const item = dummyReader.getFeatureEvents();
-        if (!item || item.length === 0) {
-          resolve({
-            success: false,
-            data: {},
-          });
-        } else {
-          resolve({
-            success: true,
-            data: item,
-          });
-        }
-      } catch (e) {
-        reject(e);
-      }
-    });
-  },
-
-  getAllPartners: () => {
-    return new Promise((resolve) => {
-      const partners = dummyReader.getPartners();
-      resolve({
-        success: true,
-        data: partners,
-      });
-    });
-  },
-
-  getPartner: (id) => {
-    return new Promise((resolve) => {
-      const partners = dummyReader.getPartners();
-      const partner = partners.find((p) => p.id === id);
-      resolve({
-        success: !!partner,
-        data: partner || {},
-      });
-    });
-  },
-
-  getAllConfig: () => {
-    return new Promise((resolve) => {
-      const config = dummyReader.getConfig(); // Sudah dalam bentuk array [{ name, data }]
-      if (!config || config.length === 0) {
-        resolve({
-          success: false,
-          data: [],
-        });
-      } else {
-        resolve({
-          success: true,
-          data: config,
-        });
-      }
-    });
-  },
-
+  // External API Calls
   getAllUpcomingMeetupsEvents: (id) => {
-    return new Promise((resolve, reject) => {
-      fetch(
-        "https://cors-anywhere.herokuapp.com/https://api.meetup.com/" +
-          id +
-          "/events?&sign=true"
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          resolve({
-            success: true,
-            data: data,
-          });
-        })
-        .catch((e) => {
-          reject(e);
-        });
-    });
+    const url = `https://cors-anywhere.herokuapp.com/https://api.meetup.com/${id}/events?&sign=true`;
+    return fetchWrapper(url);
+  },
+  getAllMeetupPastEvents: (id) => {
+    const url = `https://cors-anywhere.herokuapp.com/https://api.meetup.com/${id}/events?desc=true&photo-host=public&page=300&status=past&sign=true`;
+    return fetchWrapper(url);
+  },
+  getAllMediumBlogs: (id) => {
+    const url = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${id}`;
+    return fetchWrapper(url);
   },
 
-  getCommunityGuidelines: () => {
-    return new Promise((resolve, reject) => {
-      firebase.firestore
+  // Firestore
+  getCommunityGuidelines: async () => {
+    try {
+      const doc = await firebase.firestore
         .collection("config")
         .doc("communityguidelines")
-        .get()
-        .then((doc) => {
-          if (doc.empty) {
-            resolve({
-              success: false,
-              data: {},
-            });
-          }
-          if (Object.keys(doc.data()).length > 0) {
-            resolve({
-              success: true,
-              data: doc.data(),
-            });
-          }
-        })
-        .catch((e) => {
-          reject(e);
-        });
-    });
-  },
+        .get();
 
-  getAllMeetupPastEvents: (id) => {
-    return new Promise((resolve, reject) => {
-      fetch(
-        "https://cors-anywhere.herokuapp.com/https://api.meetup.com/" +
-          id +
-          "/events?desc=true&photo-host=public&page=300&status=past&sign=true"
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          resolve({
-            success: true,
-            data: data,
-          });
-        })
-        .catch((e) => {
-          reject(e);
-        });
-    });
-  },
-
-  getAllMediumBlogs: (id) => {
-    return new Promise((resolve, reject) => {
-      let baseURL =
-        "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/" +
-        id;
-
-      fetch(baseURL)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.items.length > 0) {
-            resolve({
-              success: true,
-              data: data,
-            });
-          }
-        })
-        .catch((e) => {
-          reject(e);
-        });
-    });
+      const data = doc.data();
+      return {
+        success: !!data && Object.keys(data).length > 0,
+        data: data || {},
+      };
+    } catch (e) {
+      return Promise.reject(e);
+    }
   },
 };
 

@@ -51,54 +51,104 @@ const routes = [
     ...withMeta({ title: 'Team Details' })
   },
   {
-    path: '/events',
-    name: 'Events',
-    component: loadView('EventsPage.vue'),
-    ...withMeta({ title: 'Events' })
+    path: '/modules',
+    name: 'Modules',
+    component: loadView('ModulesPage.vue'),
+    ...withMeta({ title: 'Modules' })
   },
   {
-    path: '/events/:id',
-    name: 'CustomEvent',
-    component: loadView('Events/MainView.vue'),
+    path: '/modules/:id',
+    name: 'CustomModule',
+    component: loadView('Modules/MainView.vue'),
     children: [
       {
         path: '/',
-        name: 'CustomEventHome',
-        component: loadView('Events/About.vue'),
-        meta: { isEvent: true }
+        name: 'CustomModuleHome',
+        component: loadView('Modules/About.vue'),
+        meta: { isModule: true }
       },
       {
-        path: 'speakers',
-        name: 'CustomEventSpeaker',
-        component: loadView('Events/Speaker.vue'),
-        meta: { isEvent: true }
+        path: 'materials',
+        name: 'CustomModuleMaterials',
+        component: loadView('Modules/Materials.vue'),
+        meta: { isModule: true }
       },
       {
-        path: 'team',
-        name: 'CustomEventTeam',
-        component: loadView('Events/Team.vue'),
-        meta: { isEvent: true }
+        path: 'assignments',
+        name: 'CustomModuleAssignments',
+        component: loadView('Modules/Assignments.vue'),
+        meta: { isModule: true }
       },
       {
-        path: 'schedule',
-        name: 'CustomEventSchedule',
-        component: loadView('Events/Schedule.vue'),
-        meta: { isEvent: true }
+        path: 'discussions',
+        name: 'CustomModuleDiscussions',
+        component: loadView('Modules/Discussions.vue'),
+        meta: { isModule: true }
       },
       {
-        path: 'partners',
-        name: 'CustomEventPartners',
-        component: loadView('Events/Partners.vue'),
-        meta: { isEvent: true }
+        path: 'resources',
+        name: 'CustomModuleResources',
+        component: loadView('Modules/Resources.vue'),
+        meta: { isModule: true }
       },
       {
         path: '',
-        name: 'redirectCustomEvent',
-        redirect: 'about',
-        meta: { isEvent: true }
+        name: 'redirectCustomModule',
+        redirect: '/',
+        meta: { isModule: true }
       }
     ]
   },
+
+  // {
+  //   path: '/events',
+  //   name: 'Events',
+  //   component: loadView('EventsPage.vue'),
+  //   ...withMeta({ title: 'Events' })
+  // },
+  // {
+  //   path: '/events/:id',
+  //   name: 'CustomEvent',
+  //   component: loadView('Events/MainView.vue'),
+  //   children: [
+  //     {
+  //       path: '/',
+  //       name: 'CustomEventHome',
+  //       component: loadView('Events/About.vue'),
+  //       meta: { isEvent: true }
+  //     },
+  //     {
+  //       path: 'speakers',
+  //       name: 'CustomEventSpeaker',
+  //       component: loadView('Events/Speaker.vue'),
+  //       meta: { isEvent: true }
+  //     },
+  //     {
+  //       path: 'team',
+  //       name: 'CustomEventTeam',
+  //       component: loadView('Events/Team.vue'),
+  //       meta: { isEvent: true }
+  //     },
+  //     {
+  //       path: 'schedule',
+  //       name: 'CustomEventSchedule',
+  //       component: loadView('Events/Schedule.vue'),
+  //       meta: { isEvent: true }
+  //     },
+  //     {
+  //       path: 'partners',
+  //       name: 'CustomEventPartners',
+  //       component: loadView('Events/Partners.vue'),
+  //       meta: { isEvent: true }
+  //     },
+  //     {
+  //       path: '',
+  //       name: 'redirectCustomEvent',
+  //       redirect: 'about',
+  //       meta: { isEvent: true }
+  //     }
+  //   ]
+  // },
   {
     path: '/speakers/:id',
     name: 'SpeakersDetails',
