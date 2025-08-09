@@ -6,7 +6,7 @@
           <HomeStartScreen class="mt-0 mb-15" />
           <WhatWeDo />
           <AboutCommunity class="mt-5" />
-          <featureModules v-if="showFeatureModuleStatus" class="my-15" />
+          <featureModules v-if="featureEvents.length > 0" class="my-15" />
           <partners class="my-15" />
         </v-col>
       </v-row>
@@ -28,23 +28,22 @@ export default {
     partners: () => import("@/components/common/Partners"),
   },
   data: () => ({
-    showFeatureModuleStatus: false,
+    featureEvents: [],
   }),
-  mounted() {
-    this.getFeaturesEvent();
+  async mounted() {
+    await this.getFeaturesEvent();
   },
   computed: {
     ...mapState(["config"]),
   },
   methods: {
-    getFeaturesEvent() {
-      service.getFeaturesEvents().then((res) => {
-        res.success
-          ? res.data.length > 0
-            ? (this.showFeatureModuleStatus = true)
-            : (this.showFeatureModuleStatus = false)
-          : (this.notFound = true);
-      });
+    async getFeaturesEvent() {
+      try {
+        const res = await service.getFeaturesEvents();
+        this.featureEvents = res.success ? res.data : [];
+      } catch (e) {
+        this.featureEvents = [];
+      }
     },
   },
 };
