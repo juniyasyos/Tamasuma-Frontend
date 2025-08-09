@@ -1,11 +1,8 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
 import firebase from '@/config/firebase'
 
 // Optional: Import modules
 // import auth from './modules/auth'
-
-Vue.use(Vuex)
 
 // Nav item data config
 const navItemsData = [
@@ -20,7 +17,7 @@ const navItemsData = [
   // { text: 'Blogs', to: '/blogs', icon: 'mdi-newspaper-variant-multiple-outline', showToolbar: true, showBottomNav: false },
 ]
 
-export default new Vuex.Store({
+export default createStore({
   state: {
     drawer: false,
     eventDrawer: true,
