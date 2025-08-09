@@ -1,7 +1,4 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-
-Vue.use(VueRouter)
+import { createRouter, createWebHistory } from 'vue-router'
 
 // ✅ Helper: Load component secara dinamis
 const loadView = (view) => () => import(`../views/${view}`)
@@ -158,7 +155,7 @@ const routes = [
   },
   ...basicRoutes,
   {
-    path: '*',
+    path: '/:pathMatch(.*)*',
     name: 'Redirect',
     redirect: '/',
     ...withMeta({ title: 'Redirect' })
@@ -166,11 +163,10 @@ const routes = [
 ]
 
 // ✅ Konfigurasi Vue Router
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   scrollBehavior() {
-    return { x: 0, y: 0 }
+    return { left: 0, top: 0 }
   },
   routes
 })

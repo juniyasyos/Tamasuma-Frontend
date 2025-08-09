@@ -4,7 +4,7 @@
       class="mx-auto pa-2"
       max-width="100%"
       flat
-      :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-light'"
+      :class="isDark ? 'aura-card-dark' : 'aura-card-light'"
     >
       <v-list-item three-line>
         <!-- <v-list-item-avatar tile size="90" style="border-radius: 12px !important;" color="grey">
@@ -27,7 +27,7 @@
               right
               class="mb-0 mt-2 google-font"
               :href="data.data.link"
-              :color="$vuetify.theme.dark ? '#585B5A' : '#DEE4EA'"
+              :color="isDark ? '#585B5A' : '#DEE4EA'"
               >See More
               <v-icon right>mdi-arrow-right-thin</v-icon>
             </v-btn>

@@ -21,7 +21,7 @@
                 <v-img
                   :src="getImgUrl(speaker.image, 'profile.jpg')"
                   style="border-style: solid;border-width: 5px;"
-                  :style="{'border-color':this.$vuetify.theme.dark?'#424242':'white'}"
+                  :style="{'border-color': isDark ? '#424242':'white'}"
                 >
                   <template v-slot:placeholder>
                     <v-row class="fill-height ma-0" align="center" justify="center">
@@ -33,13 +33,13 @@
               <p
                 class="my-0 mt-3 google-font"
                 style="font-size:150%;"
-                :style="{color:this.$vuetify.theme.dark?'white':'#424242'}"
+                :style="{color: isDark ? 'white':'#424242'}"
               >{{speaker.name}}</p>
               <p class="google-font my-0" style="font-size:110%">{{ speaker.designation }}</p>
               <p
                 class="my-0 google-font"
                 style="font-size:110%"
-                :style="{color:this.$vuetify.theme.dark?'white':'#424242'}"
+                :style="{color: isDark ? 'white':'#424242'}"
               >{{speaker.company.name}}</p>
               <p class="google-font my-0">{{ speaker.city }}, {{ speaker.country }}</p>
             </v-col>
@@ -90,7 +90,7 @@
         sm="11"
         xs="12"
         class="pt-3"
-        :class="$vuetify.theme.dark == true?'aura-card-dark':'aura-card-white'"
+        :class="isDark ? 'aura-card-dark':'aura-card-white'"
       >
         <v-container fluid>
           <v-row>

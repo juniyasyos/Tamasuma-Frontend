@@ -1,7 +1,7 @@
 <template>
   <div
     :class="
-      $vuetify.theme.dark == true
+      isDark
         ? 'aura-darkModeCardFeatureEvent'
         : 'aura-lightModeCardFeatureEvent'
     "
@@ -22,7 +22,7 @@
       right
       class="mb-0 mt-4 google-font"
       @click="goToEvent(data.id)"
-      :color="$vuetify.theme.dark?'#585B5A':'#DEE4EA'"
+      :color="isDark ? '#585B5A':'#DEE4EA'"
       >See More
       <v-icon right>mdi-arrow-right-thin</v-icon>
       </v-btn

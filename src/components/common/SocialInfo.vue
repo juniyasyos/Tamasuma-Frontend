@@ -11,7 +11,7 @@
           :href="data.twitter"
           target="_blank"
         >
-          <v-icon small :color="this.$vuetify.theme.dark == true?'white':'#333'">mdi-twitter</v-icon>
+          <v-icon small :color="isDark ? 'white':'#333'">mdi-twitter</v-icon>
         </v-btn>
 
         <v-btn
@@ -23,7 +23,7 @@
           :href="data.linkedin"
           target="_blank"
         >
-          <v-icon small :color="this.$vuetify.theme.dark == true?'white':'#333'">mdi-linkedin</v-icon>
+          <v-icon small :color="isDark ? 'white':'#333'">mdi-linkedin</v-icon>
         </v-btn>
         <v-btn
           aria-label="social media btn"
@@ -34,18 +34,11 @@
           :href="data.github"
           target="_blank"
         >
-          <v-icon small :color="this.$vuetify.theme.dark == true?'white':'#333'">mdi-github</v-icon>
+          <v-icon small :color="isDark ? 'white':'#333'">mdi-github</v-icon>
         </v-btn>
-        <!-- <v-btn
-          aria-label="social media btn"
-          small
-          class="mt-0 mx-0"
-          icon
-          v-if="checkExistance(data.medium,0)"
-          :href="data.medium"
-          target="_blank"
-        >
-          <v-icon small :color="this.$vuetify.theme.dark == true?'white':'#333'">mdi-medium</v-icon>
+        <!-- <v-btn aria-label="social media btn" small class="mt-0 mx-0" icon
+          v-if="checkExistance(data.medium,0)" :href="data.medium" target="_blank">
+          <v-icon small>mdi-medium</v-icon>
         </v-btn> -->
         <v-btn
           aria-label="social media btn"
@@ -56,7 +49,7 @@
           :href="data.web"
           target="_blank"
         >
-          <v-icon small :color="this.$vuetify.theme.dark == true?'white':'#333'">mdi-link-variant</v-icon>
+          <v-icon small :color="isDark ? 'white':'#333'">mdi-link-variant</v-icon>
         </v-btn>
       </v-col>
     </v-row>

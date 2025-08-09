@@ -11,7 +11,7 @@
           justify="center"
           align="center"
           class="pa-5"
-          :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-light'"
+          :class="isDark ? 'aura-card-dark' : 'aura-card-light'"
         >
           <v-col md="6" lg="6" sm="6" cols="12">
             <p class="google-font mb-0" style="font-size: 150%;">
@@ -47,7 +47,7 @@
               sort-by="date"
               sort-desc
               :items-per-page="5"
-              :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-light'"
+              :class="isDark ? 'aura-card-dark' : 'aura-card-light'"
             >
               <template v-slot:[`item.name`]="{ item }">
                 {{ item.name }}

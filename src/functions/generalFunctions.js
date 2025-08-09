@@ -1,4 +1,12 @@
+import { computed } from 'vue'
+import { useTheme } from 'vuetify'
+
 export default {
+    setup() {
+        const theme = useTheme()
+        const isDark = computed(() => theme.global.current.value.dark)
+        return { isDark }
+    },
     methods: {
         checkExistance: (link, size) => (link && link.length > size),
         getCharString: (data) => {

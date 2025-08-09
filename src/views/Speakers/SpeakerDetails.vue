@@ -14,7 +14,6 @@
 <script>
 export default {
   name: "SpeakerPage",
-  inject: ["theme"],
   components: {
       SpeakerDesktop:()=>import('@/components/speakers/SpeakerDesktop'),
       SpeakerMobile:()=>import('@/components/speakers/SpeakerMobile')

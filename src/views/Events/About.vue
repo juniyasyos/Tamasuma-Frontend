@@ -54,7 +54,7 @@
           cols="12"
           md="12"
           class="pa-md-5 pa-3 mt-n3"
-          :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-light'"
+          :class="isDark ? 'aura-card-dark' : 'aura-card-light'"
         >
           <v-container fluid>
             <p class="py-3" style="">
@@ -92,11 +92,7 @@
             </p>
 
             <h1
-              :class="
-                this.$vuetify.theme.dark
-                  ? 'white--text'
-                  : 'grey--text text--darken-3'
-              "
+              :class="isDark ? 'white--text' : 'grey--text text--darken-3'"
               class="google-font mb-2"
               style="font-size: 180%"
             >
@@ -192,7 +188,7 @@
     <v-container
       fluid
       class="aura-event-card mt-4 mb-5 d-none d-sm-block d-md-block d-lg-block"
-      :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-light'"
+      :class="isDark ? 'aura-card-dark' : 'aura-card-light'"
     >
       <!-- Other Data -->
       <v-row class="pa-3">
@@ -201,7 +197,7 @@
           <v-container
             fluid
             class="pa-5"
-            :class="$vuetify.theme.dark ? 'aura-card-dark-secondary' : 'aura-card-white'"
+            :class="isDark ? 'aura-card-dark-secondary' : 'aura-card-white'"
           >
             <v-row>
               <v-col
@@ -253,7 +249,7 @@
           <v-container
             fluid
             class="pa-5"
-            :class="$vuetify.theme.dark ? 'aura-card-dark-secondary' : 'aura-card-white'"
+            :class="isDark ? 'aura-card-dark-secondary' : 'aura-card-white'"
           >
             <v-row
               class="pa-0"

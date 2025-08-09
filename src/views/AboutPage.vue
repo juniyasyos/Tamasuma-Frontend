@@ -66,7 +66,7 @@
             <v-row>
               <v-col
                 class="pa-8 google-font"
-                :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-light'"
+                :class="isDark ? 'aura-card-dark' : 'aura-card-light'"
                 md="12"
                 sm="12"
                 cols="12"
@@ -87,6 +87,8 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useTheme } from 'vuetify'
 import service from "@/services/appservices";
 import { mapState } from "vuex";
 
@@ -95,6 +97,11 @@ export default {
   components: {
     communityGuidelines: () => import("@/components/about/CommunityGuidelines"),
     antiHarassmentPolicy: () => import("@/components/about/AntiHar"),
+  },
+  setup() {
+    const theme = useTheme()
+    const isDark = computed(() => theme.global.current.value.dark)
+    return { isDark }
   },
   computed: {
     ...mapState(["config"]),
