@@ -202,9 +202,8 @@ export default {
             this.notFound = true;
           }
         })
-        .catch((e) => {
+        .catch(() => {
           this.loader = false;
-          console.log(e);
         });
     },
   },

@@ -228,9 +228,8 @@ export default {
             this.notFound = true;
           }
         })
-        .catch((e) => {
+        .catch(() => {
           this.loader = false;
-          console.log(e);
         });
     },
     getevents(id) {
@@ -243,7 +242,6 @@ export default {
             res.data.map((event) => {
               // event.active && event.visible
               if (event.visible) {
-                // console.log('event:', event);
                 event.speakers.map((speak) => {
                   if (speak === id) {
                     this.events.push({ name: event.name, id: event.id, date:event.date });
@@ -256,9 +254,8 @@ export default {
             this.notFound = true;
           }
         })
-        .catch((e) => {
+        .catch(() => {
           this.loader = false;
-          console.log(e);
         });
     }
   },

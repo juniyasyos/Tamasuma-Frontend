@@ -8,6 +8,11 @@ module.exports = defineConfig({
     config.plugins.delete('prefetch')
   },
   productionSourceMap: false,
+  configureWebpack: {
+    performance: {
+      hints: false,
+    },
+  },
   pwa: {
     name: 'Tamasuma Main',
     // workboxPluginMode: 'InjectManifest',
@@ -18,9 +23,10 @@ module.exports = defineConfig({
     manifestOptions: {
       background_color: "#ffffff"
     },
-    // workboxOptions: {
-    //   swSrc: './src/sw.js',
-    //   swDest: 'service-worker.js',
-    // },
+    workboxOptions: {
+      // swSrc: './src/sw.js',
+      // swDest: 'service-worker.js',
+      maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+    },
   }
 })

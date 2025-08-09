@@ -1,6 +1,4 @@
 import { createStore } from 'vuex'
-import firebase from '@/config/firebase'
-
 // Optional: Import modules
 // import auth from './modules/auth'
 

@@ -93,12 +93,11 @@ export default {
             this.$router.push({ path: "/events" });
           }
         })
-        .catch((e) => {
+        .catch(() => {
           this.loader = false;
-          console.log(e);
         });
     },
-    shareEvent(e) {
+    shareEvent() {
       if (navigator.share) {
         navigator
           .share({
@@ -106,12 +105,8 @@ export default {
             url: `${window.location.href}`,
             text: `${this.EventData.name} by ${this.config.generalConfig.name} come and join with me....`,
           })
-          .then(() => {
-            console.log("Thanks for sharing");
-          })
-          .catch((e) => {
-            console.log(e);
-          });
+          .then(() => {})
+          .catch(() => {});
       } else {
         alert("Not supporting in your browser");
       }

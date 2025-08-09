@@ -158,9 +158,8 @@ export default {
             this.notFound = true;
           }
         })
-        .catch(e => {
+        .catch(() => {
           this.loader = false;
-          console.log(e);
         });
     },
     getevents(id) {
@@ -183,9 +182,8 @@ export default {
             this.loader = false;
           }
         })
-        .catch(e => {
+        .catch(() => {
           this.loader = false;
-          console.log(e);
         });
     },
   }
