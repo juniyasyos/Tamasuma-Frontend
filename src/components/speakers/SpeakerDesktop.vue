@@ -32,7 +32,7 @@
             <v-col cols="12" sm="12">
               <v-card
                 elevation="0"
-                :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-light'"
+                :class="isDark ? 'aura-card-dark' : 'aura-card-light'"
               >
                 <v-card-text class="px-5 pb-5">
                   <v-container fluid class="my-0 pa-0">
@@ -64,11 +64,7 @@
                         <p
                           class="my-0 mt-3 google-font"
                           style="font-size: 150%"
-                          :style="{
-                            color: this.$vuetify.theme.dark
-                              ? 'white'
-                              : '#424242',
-                          }"
+                          :style="{ color: isDark ? 'white' : '#424242' }"
                         >
                           {{ speaker.name }}
                         </p>
@@ -78,11 +74,7 @@
                         <p
                           class="my-0 google-font"
                           style="font-size: 110%"
-                          :style="{
-                            color: this.$vuetify.theme.dark
-                              ? 'white'
-                              : '#424242',
-                          }"
+                          :style="{ color: isDark ? 'white' : '#424242' }"
                         >
                           {{ speaker.company.name }}
                         </p>
@@ -110,7 +102,7 @@
               <v-card
                 flat
                 class="pa-4"
-                :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-light'"
+                :class="isDark ? 'aura-card-dark' : 'aura-card-light'"
               >
                 <v-card-title class="google-font">Sessions:</v-card-title>
                 <v-card-text>
@@ -122,7 +114,7 @@
                       v-for="sess in events"
                       :key="sess.id"
                     >
-                    <div style="cursor: pointer;" @click="$router.push({ path: '/events/' + sess.id })" class="pa-4" :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-white'">
+                    <div style="cursor: pointer;" @click="$router.push({ path: '/events/' + sess.id })" class="pa-4" :class="isDark ? 'aura-card-dark' : 'aura-card-white'">
                       <p class="mb-0">{{ convtDate(sess.date)}}</p>
                       <p style="font-size: 130%;" class="mb-0"><b>{{ sess.name }}</b></p>
                     </div>
@@ -146,7 +138,7 @@
           sm="11"
           xs="12"
           class="pt-3"
-          :class="$vuetify.theme.dark == true ? 'aura-card-dark' : 'aura-card-light'"
+          :class="isDark ? 'aura-card-dark' : 'aura-card-light'"
         >
           <v-container fluid>
             <v-row>
@@ -228,9 +220,8 @@ export default {
             this.notFound = true;
           }
         })
-        .catch((e) => {
+        .catch(() => {
           this.loader = false;
-          console.log(e);
         });
     },
     getevents(id) {
@@ -243,7 +234,6 @@ export default {
             res.data.map((event) => {
               // event.active && event.visible
               if (event.visible) {
-                // console.log('event:', event);
                 event.speakers.map((speak) => {
                   if (speak === id) {
                     this.events.push({ name: event.name, id: event.id, date:event.date });
@@ -256,9 +246,8 @@ export default {
             this.notFound = true;
           }
         })
-        .catch((e) => {
+        .catch(() => {
           this.loader = false;
-          console.log(e);
         });
     }
   },

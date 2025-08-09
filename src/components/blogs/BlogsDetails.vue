@@ -71,7 +71,6 @@
 import { mapState } from "vuex";
 import service from "@/services/appservices";
 export default {
-  inject: ["theme"],
   components: {
     BlogCard: () => import("@/components/blogs/BlogCard"),
   },
@@ -103,7 +102,7 @@ export default {
             this.loader = false;
           }
         })
-        .catch((e) => {
+        .catch(() => {
           this.loader = false;
         });
     },

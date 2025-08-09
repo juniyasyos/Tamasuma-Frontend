@@ -4,7 +4,7 @@
       <div
         v-on="on"
         style="cursor: pointer;border-left:8px solid #4E5FBB !important"
-        :class="$vuetify.theme.dark == true?'aura-card-dark':'aura-card-light'"
+        :class="isDark ? 'aura-card-dark':'aura-card-light'"
         class="pa-3"
       >
         <!-- <v-chip color="primary" label outlined class="mt-1 mx-0 mb-0" small>{{data.data.status}}</v-chip> -->
@@ -18,7 +18,7 @@
         <p class="mb-0 mt-2 google-font" style="color:#1a73e8">See More</p>
       </div>
     </template>
-    <v-card :class="this.$vuetify.theme.dark == true?'grey darken-3':'white'" v-if="dialog">
+    <v-card :class="isDark ? 'grey darken-3':'white'" v-if="dialog">
       <v-card-title
         class="px-5 py-5 google-font"
         style="background-position:right bottom;"

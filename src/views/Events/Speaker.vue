@@ -19,11 +19,7 @@
       >
         <v-col cols="12" md="12">
           <h2
-            :class="
-              this.$vuetify.theme.dark
-                ? 'white--text'
-                : 'grey--text text--darken-3'
-            "
+            :class="isDark ? 'white--text' : 'grey--text text--darken-3'"
             class="google-font mb-0"
           >
             No Speaker Found.

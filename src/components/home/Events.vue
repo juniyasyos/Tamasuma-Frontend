@@ -29,7 +29,7 @@
         <v-container fluid class="px-2 py-0">
           <v-row v-if="showLoader" class="">
             <v-col v-for="i in 4" :key="i" md="3" lg="3" sm="6" cols="6" class="pa-2">
-              <v-sheet :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`" class="">
+              <v-sheet :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`" class="">
                 <v-skeleton-loader class="mx-auto" type="article"></v-skeleton-loader>
               </v-sheet>
             </v-col>
@@ -54,14 +54,20 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useTheme } from 'vuetify'
 import service from "@/services/appservices";
 import eventCard from "@/components/events/UpcomingEventCard";
 import { mapState } from "vuex";
 export default {
   name: "EventsHomePage",
-  inject: ["theme"],
   components: {
     eventCard,
+  },
+  setup() {
+    const theme = useTheme()
+    const isDark = computed(() => theme.global.current.value.dark)
+    return { isDark }
   },
   computed: {
     ...mapState(["config"]),

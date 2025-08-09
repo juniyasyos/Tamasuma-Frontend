@@ -5,9 +5,7 @@
         v-on="on"
         style="cursor: pointer"
         class="py-5 ma-1 fill-height"
-        :class="
-          $vuetify.theme.dark == true ? 'aura-card-dark' : 'aura-card-light'
-        "
+        :class="isDark ? 'aura-card-dark' : 'aura-card-light'"
       >
         <div class="text-center">
           <v-avatar size="100">
@@ -42,7 +40,7 @@
 
     <v-card
       class="pa-md-8 pa-sm-8 pa-4 google-font"
-      :class="theme.isDark ? 'grey darken-3' : 'white'"
+      :class="isDark ? 'grey darken-3' : 'white'"
       style="border-radius: 12px"
     >
       <v-avatar size="150" style="border-radius: 15px;">
@@ -60,7 +58,7 @@
         <p class="mb-1"><b>Bio:</b></p>
         <p class="google-font" style="font-size: 90%;">{{ data.bio }}</p>
       </div>
-      <v-toolbar dense flat :color="this.$vuetify.theme.dark ? '#252726' : '#F5F8FC'" style="border-radius: 30px;">
+      <v-toolbar dense flat :color="isDark ? '#252726' : '#F5F8FC'" style="border-radius: 30px;">
         <socialMediaDetails class="pl-0 ml-0" :data="data.socialLinks" />
         <v-spacer></v-spacer>
         <v-btn class="aura-btn" dark rounded small depressed @click="goToTeam(data.id)"
@@ -72,13 +70,19 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useTheme } from 'vuetify'
 import socialMediaDetails from "@/components/common/SocialInfo";
 export default {
   components: {
     socialMediaDetails,
   },
-  inject: ["theme"],
   props: ["data"],
+  setup() {
+    const theme = useTheme()
+    const isDark = computed(() => theme.global.current.value.dark)
+    return { isDark }
+  },
   data() {
     return {
       dialog: false,
