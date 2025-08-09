@@ -31,7 +31,7 @@
             </v-col>
           </v-row>
           <v-row v-else class="py-0 my-0 px-2">
-            <v-col v-for="(item, i) in featureModulesData" :key="i" md="3" lg="3" sm="6" cols="6" class="pa-1">
+            <v-col v-for="(item, i) in featureEvendsData" :key="i" md="3" lg="3" sm="6" cols="6" class="pa-1">
               <!-- <featureEventCard :data="item" /> -->
               <ModuleCardVue :data="item" />
             </v-col>
@@ -63,14 +63,14 @@ export default {
     FeaturesEventID: [],
     AllCustomEvents: [],
     eData: [],
-    featureModulesData: [],
+    featureEvendsData: [],
   }),
   mounted() {
     this.getFeaturesEventID();
   },
   methods: {
     getAllCustomEvents() {
-      this.featureModulesData = [];
+      this.featureEvendsData = [];
       service.getAllCustomEvents().then((res) => {
         if (res.success) {
           this.loading = false;
@@ -79,11 +79,11 @@ export default {
           this.FeaturesEventID.map((res) => {
             this.AllCustomEvents.map((obj) => {
               if (obj.id == res) {
-                this.featureModulesData.push(obj);
+                this.featureEvendsData.push(obj);
               }
             });
           });
-          this.featureModulesData = this.featureModulesData.sort((a, b) => new Date(b.date) - new Date(a.date))
+          this.featureEvendsData = this.featureEvendsData.sort((a, b) => new Date(b.date) - new Date(a.date))
         }
       });
     },
