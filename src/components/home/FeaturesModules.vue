@@ -65,45 +65,46 @@ export default {
     eData: [],
     featureEvendsData: [],
   }),
-  mounted() {
-    this.getFeaturesEventID();
+  async mounted() {
+    await this.getFeaturesEventID();
   },
   methods: {
-    getAllCustomEvents() {
+    async getAllCustomEvents() {
       this.featureEvendsData = [];
-      service.getAllCustomEvents().then((res) => {
-        if (res.success) {
-          this.loading = false;
-          this.AllCustomEvents = res.data;
+      const res = await service.getAllCustomEvents();
+      if (res.success) {
+        this.loading = false;
+        this.AllCustomEvents = res.data;
 
-          this.FeaturesEventID.map((res) => {
-            this.AllCustomEvents.map((obj) => {
-              if (obj.id == res) {
-                this.featureEvendsData.push(obj);
-              }
-            });
+        this.FeaturesEventID.map((res) => {
+          this.AllCustomEvents.map((obj) => {
+            if (obj.id == res) {
+              this.featureEvendsData.push(obj);
+            }
           });
-          this.featureEvendsData = this.featureEvendsData.sort((a, b) => new Date(b.date) - new Date(a.date))
-        }
-      });
+        });
+        this.featureEvendsData = this.featureEvendsData.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
+      }
     },
 
-    getFeaturesEventID() {
+    async getFeaturesEventID() {
       this.loading = true;
-      service.getFeaturesEvents().then((res) => {
-        if (res.success) {
-          this.notFound = false;
-          this.FeaturesEventID = res.data;
-          if (this.FeaturesEventID.length > 0) this.getAllCustomEvents();
-          else {
-            this.notFound = true;
-            this.loading = false;
-          }
+      const res = await service.getFeaturesEvents();
+      if (res.success) {
+        this.notFound = false;
+        this.FeaturesEventID = res.data;
+        if (this.FeaturesEventID.length > 0) {
+          await this.getAllCustomEvents();
         } else {
           this.notFound = true;
           this.loading = false;
         }
-      });
+      } else {
+        this.notFound = true;
+        this.loading = false;
+      }
     },
   },
 };
