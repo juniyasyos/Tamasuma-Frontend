@@ -388,8 +388,7 @@ export default {
           }
           this.isLoading = false;
         })
-        .catch((e) => {
-          console.log(e);
+        .catch(() => {
           this.isLoading = false;
         });
     },

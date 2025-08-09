@@ -54,6 +54,7 @@
 <script>
 import service from "@/services/appservices";
 import { mapState, mapMutations } from "vuex";
+import { useTheme } from "vuetify";
 export default {
   name: "App",
   components: {
@@ -63,6 +64,11 @@ export default {
     Drawer: () => import("@/components/core/Drawer"),
     Views: () => import("@/components/core/Views"),
     Footer: () => import("@/components/core/Footer"),
+  },
+  setup() {
+    const theme = useTheme();
+    theme.global.name.value =
+      localStorage.getItem("darkMode") === "true" ? "dark" : "light";
   },
   data: () => ({
     isLoading: true,
@@ -86,11 +92,6 @@ export default {
       this.refreshing = true;
       window.location.reload();
     });
-  },
-  beforeCreate() {
-    localStorage.getItem("darkMode") == "true"
-      ? (this.$vuetify.theme.dark = true)
-      : (this.$vuetify.theme.dark = false);
   },
   mounted() {
     if (

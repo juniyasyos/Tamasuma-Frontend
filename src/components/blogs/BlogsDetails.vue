@@ -102,7 +102,7 @@ export default {
             this.loader = false;
           }
         })
-        .catch((e) => {
+        .catch(() => {
           this.loader = false;
         });
     },
