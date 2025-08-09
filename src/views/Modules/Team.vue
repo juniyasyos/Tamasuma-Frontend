@@ -8,7 +8,7 @@
       </v-row>
       <v-row justify="center" align="center" class="py-5" v-else-if="sData.length<=0 && !isLoading">
         <v-col cols="12" md="12">
-          <h2 :class="this.$vuetify.theme.dark?'white--text':'grey--text text--darken-3'" class="google-font mb-0">No Speaker Found.</h2>
+          <h2 :class="isDark ? 'white--text':'grey--text text--darken-3'" class="google-font mb-0">No Speaker Found.</h2>
           <!-- <p class="google-font" style="font-size:120%">No Speaker Found.</p> -->
         </v-col>
       </v-row>

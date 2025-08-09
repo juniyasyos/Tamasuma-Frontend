@@ -57,7 +57,7 @@
             <v-row v-if="loader">
               <v-col md="2" lg="2" sm="3" cols="6" v-for="i in 6" :key="i">
                 <v-sheet
-                  :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`"
+                  :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`"
                   class=""
                 >
                   <v-skeleton-loader
@@ -107,7 +107,7 @@
             <v-row v-if="loader">
               <v-col md="2" lg="2" sm="3" cols="6" v-for="i in 6" :key="i">
                 <v-sheet
-                  :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`"
+                  :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`"
                   class=""
                 >
                   <v-skeleton-loader
@@ -136,17 +136,23 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useTheme } from 'vuetify'
 import service from "@/services/appservices";
 import { mapState } from "vuex";
 export default {
   name: "TeamPage",
-  inject: ["theme"],
   computed: {
     ...mapState(["config"]),
   },
   components: {
     organizingTeamList: () => import("@/components/team/OrganizingTeamList"),
     CoreTeamMemberCard: () => import("@/components/team/CoreTeamMemberCard"),
+  },
+  setup() {
+    const theme = useTheme()
+    const isDark = computed(() => theme.global.current.value.dark)
+    return { isDark }
   },
   data: () => ({
     loader: true,

@@ -13,16 +13,20 @@
         <v-container fluid class="py-0 my-0">
           <v-row class="py-0 my-0" v-if="loading && notFound == false">
             <v-col v-for="i in 4" :key="i" md="3" lg="3" sm="6" cols="6" class="pa-2">
-              <v-sheet :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`" class>
+              <v-sheet :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`" class>
                 <v-skeleton-loader class="mx-auto" type="article"></v-skeleton-loader>
               </v-sheet>
             </v-col>
           </v-row>
           <v-row class="py-0 my-0" v-else-if="notFound">
-            <v-col md="3" lg="3" sm="6" cols="12" :class="$vuetify.theme.dark
-                ? 'darkModeCardFeatureEvent'
-                : 'lightModeCardFeatureEvent'
-              " class="pa-4 px-5 mx-3">
+            <v-col
+              md="3"
+              lg="3"
+              sm="6"
+              cols="12"
+              :class="isDark ? 'darkModeCardFeatureEvent' : 'lightModeCardFeatureEvent'"
+              class="pa-4 px-5 mx-3"
+            >
               <p class="google-font my-2">Not Found</p>
             </v-col>
           </v-row>
@@ -39,13 +43,19 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useTheme } from 'vuetify'
 import service from "@/services/appservices";
 export default {
   name: "App",
-  inject: ["theme"],
   components: {
     // featureEventCard: () => import("@/components/home/FeatureEventCard")
     EventCardVue: () => import("@/components/events/EventCard"),
+  },
+  setup() {
+    const theme = useTheme()
+    const isDark = computed(() => theme.global.current.value.dark)
+    return { isDark }
   },
   data: () => ({
     loading: true,

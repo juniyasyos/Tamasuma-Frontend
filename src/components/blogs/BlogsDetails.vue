@@ -71,7 +71,6 @@
 import { mapState } from "vuex";
 import service from "@/services/appservices";
 export default {
-  inject: ["theme"],
   components: {
     BlogCard: () => import("@/components/blogs/BlogCard"),
   },
