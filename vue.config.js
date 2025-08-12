@@ -1,10 +1,9 @@
 const { defineConfig } = require('@vue/cli-service')
+const webpack = require('webpack')
 
 module.exports = defineConfig({
-  transpileDependencies: [
-    'vuetify'
-  ],
-  chainWebpack: config => {
+  transpileDependencies: ['vuetify'],
+  chainWebpack: (config) => {
     config.plugins.delete('prefetch')
   },
   productionSourceMap: false,
@@ -12,6 +11,11 @@ module.exports = defineConfig({
     performance: {
       hints: false,
     },
+    plugins: [
+      new webpack.DefinePlugin({
+        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify(false),
+      }),
+    ],
   },
   pwa: {
     name: 'Tamasuma Main',
@@ -28,5 +32,5 @@ module.exports = defineConfig({
       // swDest: 'service-worker.js',
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
     },
-  }
+  },
 })

@@ -67,8 +67,9 @@ export default {
   },
   setup() {
     const theme = useTheme();
-    theme.global.name.value =
-      localStorage.getItem("darkMode") === "true" ? "dark" : "light";
+    theme.change(
+      localStorage.getItem("darkMode") === "true" ? "dark" : "light"
+    );
   },
   data: () => ({
     isLoading: true,
