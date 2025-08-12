@@ -60,7 +60,7 @@ const routes = [
     component: loadView('Modules/MainView.vue'),
     children: [
       {
-        path: '/',
+        path: '',
         name: 'CustomModuleHome',
         component: loadView('Modules/About.vue'),
         meta: { isModule: true }
@@ -88,13 +88,8 @@ const routes = [
         name: 'CustomModuleResources',
         component: loadView('Modules/Resources.vue'),
         meta: { isModule: true }
-      },
-      {
-        path: '',
-        name: 'redirectCustomModule',
-        redirect: '/',
-        meta: { isModule: true }
       }
+      // Default child route already handles '/modules/:id'
     ]
   },
 
