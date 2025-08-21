@@ -1,6 +1,8 @@
 import dummyReader from "../dummy/dummyReader";
 import firebase from "@/config/firebase";
 
+const API_BASE = "http://127.0.0.1:8000";
+
 // 🔧 Utility: Untuk data dummy
 const createDummyResolver = (fn) => async (...args) => {
   const data = fn(...args);
@@ -21,39 +23,49 @@ const fetchWrapper = async (url) => {
   }
 };
 
+// 🔧 Utility: Fetch API lokal dengan fallback dummy
+const fetchWithDummyFallback = async (endpoint, dummyFn) => {
+  try {
+    const res = await fetch(`${API_BASE}${endpoint}`);
+    if (!res.ok) throw new Error("Network response was not ok");
+    const data = await res.json();
+    return {
+      success: !!data && (Array.isArray(data) ? data.length > 0 : Object.keys(data).length > 0),
+      data,
+    };
+  } catch (e) {
+    const data = dummyFn();
+    return {
+      success: !!data && (Array.isArray(data) ? data.length > 0 : true),
+      data: data || (Array.isArray(data) ? [] : {}),
+    };
+  }
+};
+
 const appservice = {
-  // Dummy Readers
-  getTeam: createDummyResolver(dummyReader.getTeam),
-  getTeamMember: async (id) => {
-    const team = dummyReader.getTeam();
-    const member = team.find((item) => item.id === id);
-    return {
-      success: !!member,
-      data: member || {},
-    };
+  // API dengan fallback dummy
+  getTeam: () => fetchWithDummyFallback("/team", dummyReader.getTeam),
+  getTeamMember: async (id) =>
+    fetchWithDummyFallback(`/team/${id}`, () => dummyReader.getTeamMember(id)),
+  getEvent: (id) =>
+    fetchWithDummyFallback(`/events/${id}`, () => dummyReader.getEvent(id)),
+  getAllEvents: () => fetchWithDummyFallback("/events", dummyReader.getEvents),
+  getFeaturesEvents: () =>
+    fetchWithDummyFallback("/featureevents", dummyReader.getFeatureEvents),
+  getAllCustomEvents: async () => {
+    const res = await fetchWithDummyFallback("/events", dummyReader.getEvents);
+    if (res.success) res.data = res.data.filter((e) => e.type === "custom");
+    return res;
   },
-  getEvent: createDummyResolver(dummyReader.getEvent),
-  getAllEvents: createDummyResolver(dummyReader.getEvents),
-  getFeaturesEvents: createDummyResolver(dummyReader.getFeatureEvents),
-  getAllCustomEvents: createDummyResolver(dummyReader.getEvents),
-  getAllSpeakers: createDummyResolver(dummyReader.getSpeakers),
-  getSpeaker: createDummyResolver(dummyReader.getSpeaker),
-  getAllPartners: createDummyResolver(dummyReader.getPartners),
-  getPartner: async (id) => {
-    const partners = dummyReader.getPartners();
-    const partner = partners.find((p) => p.id === id);
-    return {
-      success: !!partner,
-      data: partner || {},
-    };
-  },
-  getAllConfig: async () => {
-    const config = dummyReader.getConfig();
-    return {
-      success: !!config && config.length > 0,
-      data: config || [],
-    };
-  },
+  getAllSpeakers: () =>
+    fetchWithDummyFallback("/Speakers", dummyReader.getSpeakers),
+  getSpeaker: (id) =>
+    fetchWithDummyFallback(`/Speakers/${id}`, () => dummyReader.getSpeaker(id)),
+  getAllPartners: () =>
+    fetchWithDummyFallback("/partners", dummyReader.getPartners),
+  getPartner: (id) =>
+    fetchWithDummyFallback(`/partners/${id}`, () => dummyReader.getPartner(id)),
+  getAllConfig: () => fetchWithDummyFallback("/config", dummyReader.getConfig),
 
   // External API Calls
   getAllUpcomingMeetupsEvents: (id) => {
