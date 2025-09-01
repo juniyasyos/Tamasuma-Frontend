@@ -6,17 +6,42 @@
     "visible": true,
     "date": "2025-01-15",
     "endDate": "2025-02-15",
+    "time": { "starttime": "09:00", "endtime": "12:00" },
     "active": true,
     "venue": { "googlemapsurl": "", "name": "Online" },
     "links": {
       "registration": "https://tamasuma.local/registrasi/ai-dasar",
-      "youtube": "https://youtube.com/@tamasuma"
+      "youtube": "https://youtube.com/@tamasuma",
+      "facebook": "",
+      "meetup": "",
+      "callforspeaker": "",
+      "feedback": ""
     },
     "partners": ["edutech_asia"],
     "team": ["rena_tamasuma", "dimas_ops"],
     "speakers": ["dea_putri"],
     "image": "https://placehold.co/800x400?text=Dasar+AI",
+    "thumbnail": "https://placehold.co/600x400?text=AI",
     "hashtags": ["Tamasuma", "AI", "Pendidik"],
+    "category": ["Artificial Intelligence", "EdTech"],
+    "difficulty": "Beginner",
+    "language": "id",
+    "durationHours": 12,
+    "authors": ["Tamasuma Academy"],
+    "prerequisites": [
+      "Memahami dasar komputer",
+      "Terbiasa menggunakan aplikasi presentasi"
+    ],
+    "outcomes": [
+      "Memahami konsep dasar AI",
+      "Menentukan use case AI dalam pengajaran",
+      "Membuat rencana integrasi AI sederhana di kelas"
+    ],
+    "resources": [
+      { "title": "Slide Materi", "url": "https://tamasuma.local/materi/ai-dasar" },
+      { "title": "Template RPP AI", "url": "https://tamasuma.local/template/rpp-ai" }
+    ],
+    "des": "<p>Pelatihan pengenalan AI untuk pendidik dengan fokus pada penerapan praktis di ruang kelas.</p>",
     "agenda": [
       { "title": "Pengenalan AI", "des": "Konsep dasar AI dalam pendidikan", "starttime": "09:00", "endtime": "10:30" },
       { "title": "Studi Kasus", "des": "Contoh penggunaan AI di kelas", "starttime": "10:45", "endtime": "12:00" }
@@ -29,17 +54,37 @@
     "visible": true,
     "date": "2025-02-20",
     "endDate": "2025-03-05",
+    "time": { "starttime": "09:00", "endtime": "12:00" },
     "active": true,
     "venue": { "googlemapsurl": "", "name": "Online" },
     "links": {
       "registration": "https://tamasuma.local/registrasi/kurikulum-proyek",
-      "youtube": "https://youtube.com/@tamasuma"
+      "youtube": "https://youtube.com/@tamasuma",
+      "facebook": "",
+      "meetup": "",
+      "callforspeaker": "",
+      "feedback": ""
     },
     "partners": ["kampus_nusantara"],
     "team": ["dimas_ops", "ayu_community"],
     "speakers": ["budi_santoso"],
     "image": "https://placehold.co/800x400?text=Kurikulum+Proyek",
+    "thumbnail": "https://placehold.co/600x400?text=PBL",
     "hashtags": ["Tamasuma", "ProjectBasedLearning"],
+    "category": ["Curriculum", "Project-Based Learning"],
+    "difficulty": "Intermediate",
+    "language": "id",
+    "durationHours": 10,
+    "authors": ["Tamasuma Studio"],
+    "prerequisites": ["Dasar penyusunan rencana pembelajaran"],
+    "outcomes": [
+      "Merancang kurikulum berbasis proyek",
+      "Menyusun rubrik asesmen berbasis kompetensi"
+    ],
+    "resources": [
+      { "title": "Contoh Rubrik", "url": "https://tamasuma.local/rubrik/pbl" }
+    ],
+    "des": "<p>Belajar konsep dan praktik terbaik untuk menyusun kurikulum berbasis proyek yang terukur dan relevan.</p>",
     "agenda": [
       { "title": "Dasar PBL", "des": "Prinsip dan perencanaan PBL", "starttime": "09:00", "endtime": "10:30" },
       { "title": "Perancangan Rubrik", "des": "Asesmen berbasis kompetensi", "starttime": "10:45", "endtime": "12:00" }
@@ -52,17 +97,38 @@
     "visible": true,
     "date": "2025-03-10",
     "endDate": "2025-03-25",
+    "time": { "starttime": "13:00", "endtime": "15:30" },
     "active": true,
     "venue": { "googlemapsurl": "", "name": "Online" },
     "links": {
       "registration": "https://tamasuma.local/registrasi/edtech-tools",
-      "youtube": "https://youtube.com/@tamasuma"
+      "youtube": "https://youtube.com/@tamasuma",
+      "facebook": "",
+      "meetup": "",
+      "callforspeaker": "",
+      "feedback": ""
     },
     "partners": ["kampus_nusantara", "edutech_asia"],
     "team": ["ayu_community"],
     "speakers": ["siti_rahma"],
     "image": "https://placehold.co/800x400?text=EdTech+Tools",
+    "thumbnail": "https://placehold.co/600x400?text=EdTech",
     "hashtags": ["Tamasuma", "EdTech"],
+    "category": ["EdTech", "Tools"],
+    "difficulty": "Beginner",
+    "language": "id",
+    "durationHours": 8,
+    "authors": ["Tamasuma"],
+    "prerequisites": ["Akses internet dan akun email"],
+    "outcomes": [
+      "Memilih tool EdTech sesuai kebutuhan",
+      "Menerapkan tool dalam skenario pengajaran"
+    ],
+    "resources": [
+      { "title": "Daftar Tools", "url": "https://tamasuma.local/edtech/tools" },
+      { "title": "Panduan Implementasi", "url": "https://tamasuma.local/edtech/panduan" }
+    ],
+    "des": "<p>Eksplorasi tool EdTech yang praktis dan mudah diintegrasikan ke dalam pembelajaran sehari-hari.</p>",
     "agenda": [
       { "title": "Tooling Dasar", "des": "Pemilihan alat yang tepat", "starttime": "09:00", "endtime": "10:30" },
       { "title": "Implementasi di Kelas", "des": "Best practices & demo", "starttime": "10:45", "endtime": "12:00" }
