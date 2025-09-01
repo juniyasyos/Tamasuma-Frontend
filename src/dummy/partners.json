@@ -1,54 +1,32 @@
 [
   {
-    "id": "abc",
+    "id": "kampus_nusantara",
+    "name": "Kampus Nusantara",
+    "des": "Mitra pendidikan untuk pengembangan modul pelatihan pendidik.",
+    "image": "https://placehold.co/300x120?text=Kampus+Nusantara",
+    "visible": true,
+    "active": true,
     "socialLinks": {
+      "linkedin": "https://linkedin.com/school/kampus-nusantara",
+      "web": "https://kampus-nusantara.example",
       "github": "",
-      "facebook": "",
-      "linkedin": "",
       "twitter": "",
-      "web": ""
-    },
-    "pocemail": "",
-    "image": "",
-    "active": false,
-    "visible": false,
-    "lastUpdatedOn": {
-      "seconds": 1596049098,
-      "nanoseconds": 965000000
-    },
-    "des": "",
-    "name": "Google Developers Groups",
-    "lastUpdatedBy": {
-      "id": "bharat_agarwal",
-      "name": "Bharat Agarwal"
+      "facebook": ""
     }
   },
   {
-    "id": "test4",
-    "createdOn": {
-      "seconds": 1593207096,
-      "nanoseconds": 951000000
-    },
-    "name": "test4",
+    "id": "edutech_asia",
+    "name": "EduTech Asia",
+    "des": "Mendukung riset dan implementasi teknologi pendidikan.",
+    "image": "https://placehold.co/300x120?text=EduTech+Asia",
+    "visible": true,
     "active": true,
-    "lastUpdatedOn": "",
-    "image": "",
     "socialLinks": {
+      "linkedin": "https://linkedin.com/company/edutech-asia",
+      "web": "https://edutech-asia.example",
       "github": "",
       "twitter": "",
-      "facebook": "",
-      "web": "",
-      "linkedin": ""
-    },
-    "lastUpdatedBy": {
-      "name": "",
-      "id": ""
-    },
-    "des": "",
-    "visible": true,
-    "createdBy": {
-      "id": "vrijraj_singh",
-      "name": "Vrijraj Singh"
+      "facebook": ""
     }
   }
 ]

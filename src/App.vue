@@ -103,7 +103,7 @@ export default {
   methods: {
     ...mapMutations([
       "setGeneralConfig",
-      "setKeysAndSecutityConfig",
+      "setKeysAndSecurityConfig",
       "setFooterConfig",
     ]),
     showRefreshUI(e) {
@@ -127,7 +127,7 @@ export default {
             if (ele.name == "footer") this.setFooterConfig(ele.data.links);
             else if (ele.name == "general") this.setGeneralConfig(ele.data);
             else if (ele.name == "keysandsecurity")
-              this.setKeysAndSecutityConfig(ele.data);
+              this.setKeysAndSecurityConfig(ele.data);
           });
           this.noData = false;
           this.isLoading = false;

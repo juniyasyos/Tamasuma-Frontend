@@ -16,10 +16,6 @@ body,
   overflow-x: hidden !important;
 }
 
-* {
-  outline: 1px solid red;
-}
-
 
 .google-font {
   font-family: google-sans;

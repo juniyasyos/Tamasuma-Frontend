@@ -69,30 +69,6 @@ const routes = [
         meta: { isModule: true }
       },
       {
-        path: 'materials',
-        name: 'CustomModuleMaterials',
-        component: loadView('Modules/Materials.vue'),
-        meta: { isModule: true }
-      },
-      {
-        path: 'assignments',
-        name: 'CustomModuleAssignments',
-        component: loadView('Modules/Assignments.vue'),
-        meta: { isModule: true }
-      },
-      {
-        path: 'discussions',
-        name: 'CustomModuleDiscussions',
-        component: loadView('Modules/Discussions.vue'),
-        meta: { isModule: true }
-      },
-      {
-        path: 'resources',
-        name: 'CustomModuleResources',
-        component: loadView('Modules/Resources.vue'),
-        meta: { isModule: true }
-      },
-      {
         path: '',
         name: 'redirectCustomModule',
         redirect: '/',

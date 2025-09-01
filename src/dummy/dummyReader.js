@@ -30,9 +30,9 @@ export default {
 
   // Config
   getConfig: () => {
-    return config.map((item) => ({
-      name: item.id, 
-      data: { ...item, id: undefined },
-    }));
+    return config.map((item) => {
+      const { id, ...rest } = item
+      return { name: id, data: rest }
+    })
   },
 };
