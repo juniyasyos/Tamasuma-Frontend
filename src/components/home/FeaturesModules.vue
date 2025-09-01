@@ -9,10 +9,15 @@
           </p>
         </div>
         <div>
-          <v-btn text rounded color="primary" class="google-font" to="/modules">
+          <AppButton
+            variant="text"
+            color="primary"
+            class="google-font"
+            to="/modules"
+            iconRight="mdi-arrow-right"
+          >
             Lihat Semua Modul
-            <v-icon right>mdi-arrow-right</v-icon>
-          </v-btn>
+          </AppButton>
         </div>
       </v-col>
 
@@ -82,28 +87,22 @@
                   <div class="google-font caption grey--text mb-3">
                     Mulai {{ convtDate(item.date) }}
                   </div>
-                  <div class="chip-row">
-                    <v-chip
-                      v-for="(tag, t) in (item.hashtags || []).slice(0, 2)"
-                      :key="t"
-                      label
-                      small
-                      class="mr-1 mb-1"
-                      color="blue lighten-5"
-                      text-color="blue darken-2"
-                    >
-                      {{ tag }}
-                    </v-chip>
-                  </div>
+                  <p class="google-font" style="font-size: 100%; color: #dee5f1">
+                    <span v-for="(tag, t) in (item.hashtags || [])" :key="t">
+                      <v-chip
+                        :href="'https://twitter.com/hashtag/' + tag"
+                        rel="noreferrer"
+                        target="_blank"
+                        small
+                        class="mr-1"
+                        :color="$vuetify.theme.dark ? '#292929' : '#DEE5F1'"
+                        @click.stop
+                      >
+                        #{{ tag }}
+                      </v-chip>
+                    </span>
+                  </p>
                 </v-card-text>
-
-                <v-card-actions class="px-4 pb-4 pt-0 d-flex align-center">
-                  <v-btn small rounded text color="primary" class="google-font">
-                    Lihat Modul
-                  </v-btn>
-                  <v-spacer />
-                  <v-icon color="primary">mdi-chevron-right</v-icon>
-                </v-card-actions>
               </v-card>
             </v-col>
           </v-row>
@@ -115,11 +114,13 @@
 
 <script>
 import service from "@/services/appservices";
+import AppButton from "@/components/ui/AppButton";
 export default {
   name: "App",
   inject: ["theme"],
   components: {
     // featureEventCard: () => import("@/components/home/FeatureEventCard")
+    AppButton,
   },
   data: () => ({
     loading: true,
