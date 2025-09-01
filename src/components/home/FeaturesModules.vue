@@ -94,7 +94,7 @@
                         rel="noreferrer"
                         target="_blank"
                         small
-                        class="mr-1"
+                        class="mr-1 mt-1"
                         :color="$vuetify.theme.dark ? '#292929' : '#DEE5F1'"
                         @click.stop
                       >
