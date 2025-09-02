@@ -3,7 +3,6 @@
     <v-container fluid class="pa-0">
       <v-row justify="center" align="center" class="py-0 my-0">
         <v-col md="12" lg="11" sm="11" xs="12">
-          <!-- Header -->
           <v-container fluid class="my-0 py-0">
             <v-row justify="center" align="center">
               <v-col md="8" sm="7" cols="12">
@@ -36,24 +35,11 @@
               </v-col>
             </v-row>
           </v-container>
-          <!-- Header -->
 
-          <!-- Feature Events (ganti konteks ke modul unggulan) -->
           <FeatureModules class="my-10" />
-          <!-- Feature Events -->
         </v-col>
       </v-row>
     </v-container>
-
-    <!-- Past Events (ganti konteks ke modul sebelumnya) -->
-    <!-- <v-container fluid class="py-2 mt-8 mb-8">
-      <v-row justify="center" align="center">
-        <v-col md="12" lg="11" sm="11" xs="12" class="py-0">
-          <ModuleList />
-        </v-col>
-      </v-row>
-    </v-container> -->
-    <!-- Past Events -->
   </v-main>
 </template>
 
@@ -61,14 +47,13 @@
 import { mapState } from "vuex";
 
 export default {
-  name: "EventsPage",
+  name: "ModulesIndexPage",
   components: {
     FeatureModules: () => import("@/components/home/FeaturesModules"),
-    // ModuleList: () => import("@/components/modules/ModuleList"),
   },
   computed: {
     ...mapState(["config"]),
   },
-  data: () => ({}),
 };
 </script>
+

@@ -88,7 +88,7 @@
 import service from "@/services/appservices";
 import { mapState } from "vuex";
 export default {
-  name: "EventPartner",
+  name: "ModulePartners",
   props: ["eventDetails"],
   data: () => ({
     partnersData: [],

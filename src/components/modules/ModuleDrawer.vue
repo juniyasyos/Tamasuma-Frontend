@@ -7,7 +7,7 @@
     </v-avatar>
     <v-list>
       <v-btn depressed class="px-0 py-8 mb-2" style="border-radius: 16px" v-for="(link, i) in links" :key="i"
-        @click="onClick($event, link)" :to="'/events/' + $route.params.id + '' + link.to"
+        @click="onClick($event, link)" :to="'/modules/' + $route.params.id + '' + link.to"
         :color="$vuetify.theme.dark ? '#292929' : '#F5F8FC'">
         <div>
           <v-icon style="display: block" size="24" class="mb-1">{{
@@ -39,7 +39,7 @@
 <script>
 import { mapState, mapGetters, mapMutations } from "vuex";
 export default {
-  name: "eventDrawer",
+  name: "ModuleDrawer",
   data: () => ({
     links: [
       {

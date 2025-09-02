@@ -53,24 +53,48 @@ const routes = [
   },
   {
     path: '/modules',
-    name: 'Modules',
-    component: loadView('ModulesPage.vue'),
+    name: 'ModulesIndex',
+    component: loadView('Modules/ModulesIndexPage.vue'),
     ...withMeta({ title: 'Modules' })
   },
   {
     path: '/modules/:id',
-    name: 'CustomModule',
-    component: loadView('Modules/MainView.vue'),
+    name: 'ModuleDetails',
+    component: loadView('Modules/ModuleLayout.vue'),
     children: [
       {
         path: '/',
-        name: 'CustomModuleHome',
-        component: loadView('Modules/About.vue'),
+        name: 'ModuleOverview',
+        component: loadView('Modules/ModuleOverview.vue'),
+        meta: { isModule: true }
+      },
+      {
+        path: 'speakers',
+        name: 'ModuleSpeakers',
+        component: loadView('Modules/ModuleSpeakers.vue'),
+        meta: { isModule: true }
+      },
+      {
+        path: 'schedule',
+        name: 'ModuleSchedule',
+        component: loadView('Modules/ModuleSchedule.vue'),
+        meta: { isModule: true }
+      },
+      {
+        path: 'partners',
+        name: 'ModulePartners',
+        component: loadView('Modules/ModulePartners.vue'),
+        meta: { isModule: true }
+      },
+      {
+        path: 'team',
+        name: 'ModuleTeam',
+        component: loadView('Modules/ModuleTeam.vue'),
         meta: { isModule: true }
       },
       {
         path: '',
-        name: 'redirectCustomModule',
+        name: 'redirectModuleDetails',
         redirect: '/',
         meta: { isModule: true }
       }

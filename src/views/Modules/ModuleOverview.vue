@@ -14,15 +14,10 @@
           >
             <template v-slot:placeholder>
               <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="grey lighten-5"
-                ></v-progress-circular>
+                <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
               </v-row>
             </template>
-            <v-card-title
-              class="fill-height align-end google-font pb-5 white--text"
-            >
+            <v-card-title class="fill-height align-end google-font pb-5 white--text">
               <div class="pa-5">
                 <p class="my-0" style="font-size: 150%">
                   {{ eventDetails.name }}
@@ -36,17 +31,8 @@
                 </p>
               </div>
             </v-card-title>
-            <v-layout
-              slot="placeholder"
-              fill-height
-              align-center
-              justify-center
-              ma-0
-            >
-              <v-progress-circular
-                indeterminate
-                color="grey lighten-5"
-              ></v-progress-circular>
+            <v-layout slot="placeholder" fill-height align-center justify-center ma-0>
+              <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
             </v-layout>
           </v-img>
         </v-col>
@@ -64,8 +50,7 @@
               >
               <span class="mr-5 my-auto"
                 ><v-icon class="mr-1 mb-1">mdi-clock-outline</v-icon
-                >{{ eventDetails.time.starttime }} -
-                {{ eventDetails.time.endtime }}</span
+                >{{ eventDetails.time.starttime }} - {{ eventDetails.time.endtime }}</span
               >
               <span class="mr-5 my-auto"
                 ><v-icon class="mr-1 mb-1">mdi-map-marker-outline</v-icon
@@ -77,26 +62,15 @@
                 ></span
               >
 
-              <span
-                class="float-right"
-                v-for="(item, i) in eventDetails.hashtags"
-                :key="i"
-              >
-                <v-chip
-                  class="mr-1"
-                  :href="'https://twitter.com/hashtag/' + item"
-                  target="_blank"
+              <span class="float-right" v-for="(item, i) in eventDetails.hashtags" :key="i">
+                <v-chip class="mr-1" :href="'https://twitter.com/hashtag/' + item" target="_blank"
                   >#{{ item }}</v-chip
                 >
               </span>
             </p>
 
             <h1
-              :class="
-                this.$vuetify.theme.dark
-                  ? 'white--text'
-                  : 'grey--text text--darken-3'
-              "
+              :class="this.$vuetify.theme.dark ? 'white--text' : 'grey--text text--darken-3'"
               class="google-font mb-2"
               style="font-size: 180%"
             >
@@ -241,7 +215,7 @@
                   dark
                   depressed
                   rounded
-                  :to="'/events/' + $route.params.id + '/speakers'"
+                  :to="'/modules/' + $route.params.id + '/speakers'"
                   >See more</v-btn
                 >
               </v-col>
@@ -255,11 +229,7 @@
             class="pa-5"
             :class="$vuetify.theme.dark ? 'aura-card-dark-secondary' : 'aura-card-white'"
           >
-            <v-row
-              class="pa-0"
-              align="center"
-              v-if="checkExistance(eventDetails.partners, 0)"
-            >
+            <v-row class="pa-0" align="center" v-if="checkExistance(eventDetails.partners, 0)">
               <v-col
                 cols="6"
                 md="4"
@@ -271,11 +241,7 @@
               >
                 <div
                   class="ma-1 px-2"
-                  style="
-                    background-color: white;
-                    border: 1px solid #e0e0e0;
-                    border-radius: 5px;
-                  "
+                  style="background-color: white; border: 1px solid #e0e0e0; border-radius: 5px"
                 >
                   <a :href="item.socialLinks.web" target="_blank">
                     <v-tooltip bottom>
@@ -290,11 +256,7 @@
                           v-on="on"
                         >
                           <template v-slot:placeholder>
-                            <v-row
-                              class="fill-height ma-0"
-                              align="center"
-                              justify="center"
-                            >
+                            <v-row class="fill-height ma-0" align="center" justify="center">
                               <v-progress-circular
                                 indeterminate
                                 color="grey lighten-5"
@@ -316,7 +278,7 @@
                   dark
                   depressed
                   rounded
-                  :to="'/events/' + $route.params.id + '/partners'"
+                  :to="'/modules/' + $route.params.id + '/partners'"
                   >See more</v-btn
                 >
               </v-col>
@@ -333,7 +295,7 @@
 import { mapState } from "vuex";
 import service from "@/services/appservices";
 export default {
-  name: "EventAbout",
+  name: "ModuleOverview",
   props: ["eventDetails"],
   data: () => ({
     eventSpeakers: [],

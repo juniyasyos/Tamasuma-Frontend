@@ -65,7 +65,7 @@
 import service from "@/services/appservices";
 
 export default {
-  name: "SpeakerInfoPage",
+  name: "ModuleSpeakers",
   components: {
     LayoutSpeaker: () => import("@/components/CustomEvent/Speakers.vue"),
   },

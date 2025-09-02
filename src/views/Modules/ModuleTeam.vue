@@ -40,7 +40,7 @@
 <script>
 import service from "@/services/appservices";
 export default {
-  name:"teamEvents",
+  name:"ModuleTeam",
   components:{
     TeamMemberCard: ()=>import('../../components/team/CoreTeamMemberCard')
   },

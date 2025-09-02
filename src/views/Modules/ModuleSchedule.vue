@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: "SchdeuleEvents",
+  name: "ModuleSchedule",
   props: ["eventDetails"],
   data:()=>({
         headers: [

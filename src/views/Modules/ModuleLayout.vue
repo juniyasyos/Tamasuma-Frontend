@@ -1,7 +1,7 @@
 <template>
   <v-main class="hidden-x">
-    <EventToolBar :eventName="EventData.name" />
-    <EventDrawer />
+    <ModuleToolbar :moduleName="moduleData.name" />
+    <ModuleDrawer />
     <v-main class="" v-if="loader">
       <v-container fluid class="fill-height">
         <v-row justify="center" align="center" class>
@@ -16,16 +16,12 @@
         </v-row>
       </v-container>
     </v-main>
-    <v-main
-      v-else
-      class="pa-0 ma-0"
-      :class="this.$vuetify.theme.dark ? 'black' : 'white'"
-    >
+    <v-main v-else class="pa-0 ma-0" :class="this.$vuetify.theme.dark ? 'black' : 'white'">
       <v-container fluid>
         <v-row align="center" justify="center">
           <v-col cols="12" sm="12" md="11" lg="11" xl="11" class="my-0 py-0">
             <v-slide-y-reverse-transition>
-              <router-view :eventDetails="EventData" v-show="show" />
+              <router-view :eventDetails="moduleData" :moduleDetails="moduleData" v-show="show" />
             </v-slide-y-reverse-transition>
           </v-col>
         </v-row>
@@ -37,7 +33,7 @@
         dark
         fab
         class="hidden-sm-and-up"
-        @click="shareEvent"
+        @click="shareModule"
         bottom
         fixed
         right
@@ -53,44 +49,42 @@
 import service from "@/services/appservices";
 import { mapState } from "vuex";
 export default {
-  name: "EventMainViewPage",
+  name: "ModuleLayoutPage",
   components: {
-    EventToolBar: () => import("@/components/CustomEvent/EventToolbar"),
-    EventDrawer: () => import("@/components/CustomEvent/EventDrawer"),
+    ModuleToolbar: () => import("@/components/modules/ModuleToolbar"),
+    ModuleDrawer: () => import("@/components/modules/ModuleDrawer"),
   },
   data: () => ({
     show: false,
     notFound: 0,
-    EventData: {},
+    moduleData: {},
     loader: true,
   }),
   mounted() {
-    this.getEventInfo();
+    this.getModuleInfo();
   },
   computed: {
     ...mapState(["config"]),
   },
   methods: {
-    getEventInfo() {
+    getModuleInfo() {
       this.loader = true;
-      this.EventData = {};
+      this.moduleData = {};
       service
         .getEvent(this.$route.params.id)
         .then((res) => {
           if (res.success) {
             if (res.data.visible) {
-              this.EventData = res.data;
-              // console.log(this.EventData);
+              this.moduleData = res.data;
               this.loader = false;
-              document.title =
-                this.EventData.name + " | " + this.config.generalConfig.name;
+              document.title = this.moduleData.name + " | " + this.config.generalConfig.name;
             } else {
               this.loader = false;
-              this.$router.push({ path: "/events" });
+              this.$router.push({ path: "/modules" });
             }
           } else {
             this.loader = false;
-            this.$router.push({ path: "/events" });
+            this.$router.push({ path: "/modules" });
           }
         })
         .catch((e) => {
@@ -98,16 +92,13 @@ export default {
           console.log(e);
         });
     },
-    shareEvent(e) {
+    shareModule() {
       if (navigator.share) {
         navigator
           .share({
-            title: `${this.EventData.name} - ${this.config.generalConfig.name}`,
+            title: `${this.moduleData.name} - ${this.config.generalConfig.name}`,
             url: `${window.location.href}`,
-            text: `${this.EventData.name} by ${this.config.generalConfig.name} come and join with me....`,
-          })
-          .then(() => {
-            console.log("Thanks for sharing");
+            text: `${this.moduleData.name} by ${this.config.generalConfig.name} — check this out!`,
           })
           .catch((e) => {
             console.log(e);
