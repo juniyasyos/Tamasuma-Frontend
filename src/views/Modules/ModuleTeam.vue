@@ -21,14 +21,14 @@
               </p>
             </v-col>
           </v-row>
-          <v-row class="" v-if="checkExistance(eventDetails.team,0)">
+          <v-row class="" v-if="checkExistance(moduleDetails.team,0)">
             <v-col cols="6" md="2" lg="2" xl="2" sm="3" class="pa-1" v-for="(item,i) in sData" :key="i">
               <TeamMemberCard :data="item" />
             </v-col>
           </v-row>
           <!-- <v-row class="mt-5">
             <v-col>
-              {{eventDetails}}
+              {{moduleDetails}}
             </v-col>
           </v-row> -->
         </v-col>
@@ -44,7 +44,7 @@ export default {
   components:{
     TeamMemberCard: ()=>import('../../components/team/CoreTeamMemberCard')
   },
-  props:['eventDetails'],
+  props:['moduleDetails'],
   data:()=>({
     ErrorMsg: "",
     TeamData: [],
@@ -63,7 +63,7 @@ export default {
         .then(res => {
           if (res.success == true) {
             this.TeamData = res.data;
-            this.eventDetails.team.map(s => {
+            this.moduleDetails.team.map(s => {
               this.TeamData.map(obj => {
                 if (obj.id == s) {
                   // console.log(obj);

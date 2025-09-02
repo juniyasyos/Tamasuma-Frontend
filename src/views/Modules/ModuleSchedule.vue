@@ -11,7 +11,7 @@
                   :mobile-breakpoint="0"
                   style="border-radius:5px;"
                   :headers="headers"
-                  :items="eventDetails.agenda"
+                  :items="moduleDetails.agenda"
                   :items-per-page="5"
                   class="ma-0 pa-0 mt-3"
                   :class="$vuetify.theme.dark?'aura-card-dark' : 'aura-card-light'"
@@ -26,7 +26,7 @@
 <script>
 export default {
   name: "ModuleSchedule",
-  props: ["eventDetails"],
+  props: ["moduleDetails"],
   data:()=>({
         headers: [
             {

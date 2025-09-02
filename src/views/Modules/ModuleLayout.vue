@@ -21,7 +21,7 @@
         <v-row align="center" justify="center">
           <v-col cols="12" sm="12" md="11" lg="11" xl="11" class="my-0 py-0">
             <v-slide-y-reverse-transition>
-              <router-view :eventDetails="moduleData" :moduleDetails="moduleData" v-show="show" />
+              <router-view :moduleDetails="moduleData" v-show="show" />
             </v-slide-y-reverse-transition>
           </v-col>
         </v-row>

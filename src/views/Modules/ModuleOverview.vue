@@ -4,8 +4,8 @@
       <v-row class="py-0 my-0" align="center" justify="center">
         <v-col cols="12" md="12" class="pa-0">
           <v-img
-            :src="getImgUrl(eventDetails.image, 'eventbanner.jpg')"
-            :lazy-src="getImgUrl(eventDetails.image, 'eventbanner.jpg')"
+            :src="getImgUrl(moduleDetails.image, 'eventbanner.jpg')"
+            :lazy-src="getImgUrl(moduleDetails.image, 'eventbanner.jpg')"
             width="100%"
             cover
             style="border-radius: 17px"
@@ -20,14 +20,14 @@
             <v-card-title class="fill-height align-end google-font pb-5 white--text">
               <div class="pa-5">
                 <p class="my-0" style="font-size: 150%">
-                  {{ eventDetails.name }}
+                  {{ moduleDetails.name }}
                 </p>
                 <p class="my-0 my-n1" style="font-size: 80%">
                   {{ config.generalConfig.name }}
                 </p>
                 <!-- <br> -->
                 <p class="my-0 my-n2" style="font-size: 70%">
-                  {{ eventDetails.date }}
+                  {{ moduleDetails.date }}
                 </p>
               </div>
             </v-card-title>
@@ -46,23 +46,23 @@
             <p class="py-3" style="">
               <span class="mr-5 my-auto"
                 ><v-icon class="mr-1 mb-1">mdi-calendar</v-icon
-                >{{ convtDate(eventDetails.date) }}</span
+                >{{ convtDate(moduleDetails.date) }}</span
               >
               <span class="mr-5 my-auto"
                 ><v-icon class="mr-1 mb-1">mdi-clock-outline</v-icon
-                >{{ eventDetails.time.starttime }} - {{ eventDetails.time.endtime }}</span
+                >{{ moduleDetails.time.starttime }} - {{ moduleDetails.time.endtime }}</span
               >
               <span class="mr-5 my-auto"
                 ><v-icon class="mr-1 mb-1">mdi-map-marker-outline</v-icon
                 ><a
                   target="_blank"
                   style="text-decoration: none"
-                  :href="eventDetails.venue.googlemapsurl"
-                  >{{ eventDetails.venue.name }}</a
+                  :href="moduleDetails.venue.googlemapsurl"
+                  >{{ moduleDetails.venue.name }}</a
                 ></span
               >
 
-              <span class="float-right" v-for="(item, i) in eventDetails.hashtags" :key="i">
+              <span class="float-right" v-for="(item, i) in moduleDetails.hashtags" :key="i">
                 <v-chip class="mr-1" :href="'https://twitter.com/hashtag/' + item" target="_blank"
                   >#{{ item }}</v-chip
                 >
@@ -74,9 +74,9 @@
               class="google-font mb-2"
               style="font-size: 180%"
             >
-              {{ eventDetails.name }} Details
+              {{ moduleDetails.name }} Details
             </h1>
-            <p class="google-font mb-3" style="font-size: 90%" v-html="eventDetails.des"></p>
+            <p class="google-font mb-3" style="font-size: 90%" v-html="moduleDetails.des"></p>
 
             <div class="mt-10">
               <v-btn
@@ -85,8 +85,8 @@
                 target="_blank"
                 rounded
                 depressed
-                v-if="eventDetails.links.registration"
-                :href="eventDetails.links.registration"
+                v-if="moduleDetails.links.registration"
+                :href="moduleDetails.links.registration"
                 class="mr-1 mb-1 aura-btn"
                 label
                 >Registration</v-btn
@@ -97,8 +97,8 @@
                 rounded
                 depressed
                 target="_blank"
-                v-if="eventDetails.links.meetup"
-                :href="eventDetails.links.meetup"
+                v-if="moduleDetails.links.meetup"
+                :href="moduleDetails.links.meetup"
                 class="mr-1 mb-1 aura-btn"
                 label
                 >Meetup</v-btn
@@ -110,8 +110,8 @@
                 target="_blank"
                 rounded
                 depressed
-                v-if="eventDetails.links.callforspeaker"
-                :href="eventDetails.links.callforspeaker"
+                v-if="moduleDetails.links.callforspeaker"
+                :href="moduleDetails.links.callforspeaker"
                 class="mr-1 mb-1"
                 label
                 >Call For Speakers</v-btn
@@ -123,8 +123,8 @@
                 target="_blank"
                 rounded
                 depressed
-                v-if="eventDetails.links.facebook"
-                :href="eventDetails.links.facebook"
+                v-if="moduleDetails.links.facebook"
+                :href="moduleDetails.links.facebook"
                 class="mr-1 mb-1"
                 label
                 >Facebook</v-btn
@@ -136,8 +136,8 @@
                 target="_blank"
                 rounded
                 depressed
-                v-if="eventDetails.links.feedback"
-                :href="eventDetails.links.feedback"
+                v-if="moduleDetails.links.feedback"
+                :href="moduleDetails.links.feedback"
                 class="mr-1 mb-1"
                 label
                 >Feedback</v-btn
@@ -149,8 +149,8 @@
                 target="_blank"
                 rounded
                 depressed
-                v-if="eventDetails.links.youtube"
-                :href="eventDetails.links.youtube"
+                v-if="moduleDetails.links.youtube"
+                :href="moduleDetails.links.youtube"
                 class="mr-1 mb-1"
                 label
                 >Youtube
@@ -229,7 +229,7 @@
             class="pa-5"
             :class="$vuetify.theme.dark ? 'aura-card-dark-secondary' : 'aura-card-white'"
           >
-            <v-row class="pa-0" align="center" v-if="checkExistance(eventDetails.partners, 0)">
+            <v-row class="pa-0" align="center" v-if="checkExistance(moduleDetails.partners, 0)">
               <v-col
                 cols="6"
                 md="4"
@@ -296,7 +296,7 @@ import { mapState } from "vuex";
 import service from "@/services/appservices";
 export default {
   name: "ModuleOverview",
-  props: ["eventDetails"],
+  props: ["moduleDetails"],
   data: () => ({
     eventSpeakers: [],
     SpeakersData: [],
@@ -319,7 +319,7 @@ export default {
         .then((res) => {
           if (res.success == true) {
             this.SpeakersData = res.data;
-            this.eventDetails.speakers.map((s) => {
+            this.moduleDetails.speakers.map((s) => {
               this.SpeakersData.map((obj) => {
                 if (obj.id == s) {
                   this.eventSpeakers.push(obj);
@@ -343,7 +343,7 @@ export default {
         .then((res) => {
           if (res.success) {
             this.partnersData = res.data;
-            this.eventDetails.partners.map((p) => {
+            this.moduleDetails.partners.map((p) => {
               this.partnersData.map((obj) => {
                 if (obj.id == p) {
                   this.eventPartners.push(obj);

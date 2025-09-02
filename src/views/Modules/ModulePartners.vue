@@ -27,7 +27,7 @@
           <v-row
             class="pa-0 mt-5"
             align="center"
-            v-else-if="checkExistance(eventDetails.partners, 0)"
+            v-else-if="checkExistance(moduleDetails.partners, 0)"
           >
             <v-col
               cols="6"
@@ -89,7 +89,7 @@ import service from "@/services/appservices";
 import { mapState } from "vuex";
 export default {
   name: "ModulePartners",
-  props: ["eventDetails"],
+  props: ["moduleDetails"],
   data: () => ({
     partnersData: [],
     pData: [],
@@ -110,7 +110,7 @@ export default {
         .then((res) => {
           if (res.success) {
             this.partnersData = res.data;
-            this.eventDetails.partners.map((p) => {
+            this.moduleDetails.partners.map((p) => {
               this.partnersData.map((obj) => {
                 if (obj.id == p) {
                   this.pData.push(obj);

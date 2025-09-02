@@ -41,7 +41,7 @@
               <p>Check our amazing and cool speakers</p>
             </v-col>
           </v-row>
-          <v-row class="" v-if="checkExistance(eventDetails.speakers, 0)">
+          <v-row class="" v-if="checkExistance(moduleDetails.speakers, 0)">
             <v-col
               cols="6"
               md="3"
@@ -69,7 +69,7 @@ export default {
   components: {
     LayoutSpeaker: () => import("@/components/CustomEvent/Speakers.vue"),
   },
-  props: ["eventDetails"],
+  props: ["moduleDetails"],
   data: () => ({
     ErrorMsg: "",
     SpeakersData: [],
@@ -88,7 +88,7 @@ export default {
         .then((res) => {
           if (res.success == true) {
             this.SpeakersData = res.data;
-            this.eventDetails.speakers.map((s) => {
+            this.moduleDetails.speakers.map((s) => {
               this.SpeakersData.map((obj) => {
                 if (obj.id == s) {
                   this.sData.push(obj);
