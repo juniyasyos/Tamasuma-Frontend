@@ -3,12 +3,12 @@
     <v-row align="center" justify="center">
       <v-col cols="12" class="mb-2 d-flex align-center justify-space-between">
         <div>
-          <p class="google-font mb-1 mt-0 section-title">Modul Unggulan</p>
+          <p class="google-font mb-1 mt-0 section-title">{{ sectionTitle }}</p>
           <p class="google-font mt-0 mb-0 section-subtitle">
-            Rekomendasi modul terkurasi untuk pengembangan kompetensi pendidik.
+            {{ sectionSubtitle }}
           </p>
         </div>
-        <div>
+        <div v-if="variant === 'dashboard'">
           <AppButton
             variant="text"
             color="primary"
@@ -122,6 +122,14 @@ export default {
     // featureEventCard: () => import("@/components/home/FeatureEventCard")
     AppButton,
   },
+  props: {
+    // Gunakan 'dashboard' untuk ditampilkan di beranda (tampilkan CTA)
+    // Gunakan 'page' untuk halaman /modules (sembunyikan CTA "Lihat Semua Modul")
+    variant: {
+      type: String,
+      default: 'dashboard'
+    }
+  },
   data: () => ({
     loading: true,
     notFound: false,
@@ -131,7 +139,11 @@ export default {
     featureModulesData: [],
   }),
   mounted() {
-    this.getFeaturesEventID();
+    if (this.variant === 'page') {
+      this.getAllModulesForPage()
+    } else {
+      this.getFeaturesEventID()
+    }
   },
   methods: {
     goToModule(id) {
@@ -151,13 +163,28 @@ export default {
               }
             });
           });
-          this.featureModulesData = this.featureModulesData.sort(
-            (a, b) => new Date(b.date) - new Date(a.date)
-          );
+          this.featureModulesData = this.featureModulesData
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .slice(0, 4) // maksimal 4 modul unggulan di dashboard
         }
       });
     },
-
+    getAllModulesForPage() {
+      this.loading = true
+      this.featureModulesData = []
+      service.getAllCustomEvents().then((res) => {
+        if (res.success) {
+          this.AllCustomEvents = res.data || []
+          this.featureModulesData = this.AllCustomEvents.sort(
+            (a, b) => new Date(b.date) - new Date(a.date)
+          )
+          this.notFound = this.featureModulesData.length === 0
+        } else {
+          this.notFound = true
+        }
+        this.loading = false
+      })
+    },
     getFeaturesEventID() {
       this.loading = true;
       service.getFeaturesEvents().then((res) => {
@@ -176,6 +203,16 @@ export default {
       });
     },
   },
+  computed: {
+    sectionTitle() {
+      return this.variant === 'page' ? 'Semua Modul' : 'Modul Unggulan'
+    },
+    sectionSubtitle() {
+      return this.variant === 'page'
+        ? 'Daftar lengkap modul pembelajaran Tamasuma.'
+        : 'Rekomendasi modul terkurasi untuk pengembangan kompetensi pendidik.'
+    }
+  }
 };
 </script>
 

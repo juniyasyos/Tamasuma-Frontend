@@ -71,7 +71,7 @@
                 sm="12"
                 cols="12"
               >
-                <h1 class="mb-2">Code of conduct</h1>
+                <h1 class="mb-2">Kode Etik Tamasuma</h1>
                 <p>{{ coc }}</p>
                 <antiHarassmentPolicy
                   :data="

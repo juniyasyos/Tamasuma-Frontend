@@ -4,7 +4,7 @@
     <ModuleDrawer />
     <v-main class="" v-if="loader">
       <v-container fluid class="fill-height">
-        <v-row justify="center" align="center" class>
+        <v-row justify="start" align="start" class>
           <v-col cols="12" md="12" class="text-center">
             <v-progress-circular
               :width="5"
@@ -18,7 +18,7 @@
     </v-main>
     <v-main v-else class="pa-0 ma-0" :class="this.$vuetify.theme.dark ? 'black' : 'white'">
       <v-container fluid>
-        <v-row align="center" justify="center">
+        <v-row align="start" justify="start">
           <v-col cols="12" sm="12" md="11" lg="11" xl="11" class="my-0 py-0">
             <v-slide-y-reverse-transition>
               <router-view :moduleDetails="moduleData" v-show="show" />

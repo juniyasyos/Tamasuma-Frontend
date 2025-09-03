@@ -2,7 +2,7 @@
   <v-container fluid class="py-0 my-0 mt-5">
     <v-row align="center" class="py-0 my-0 mb-5">
       <v-col md="12" sm="12" cols="12" class="py-0 my-0">
-        <h1 class="google-font mb-2">Community Guidelines</h1>
+        <h1 class="google-font mb-2">Pedoman Komunitas Tamasuma</h1>
 
         <v-container fluid class="google-font mx-0 px-0">
           <v-row>

@@ -36,7 +36,7 @@
             </v-row>
           </v-container>
 
-          <FeatureModules class="my-10" />
+          <ModuleList class="my-6" />
         </v-col>
       </v-row>
     </v-container>
@@ -49,11 +49,10 @@ import { mapState } from "vuex";
 export default {
   name: "ModulesIndexPage",
   components: {
-    FeatureModules: () => import("@/components/home/FeaturesModules"),
+    ModuleList: () => import("@/components/modules/ModuleList"),
   },
   computed: {
     ...mapState(["config"]),
   },
 };
 </script>
-

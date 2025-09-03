@@ -12,9 +12,9 @@ body,
   padding: 0;
 }
 
-* {
+/* * {
   outline: 1px solid red;
-}
+} */
 
 .v-application--wrap {
   overflow-x: hidden !important;
