@@ -1,10 +1,12 @@
 // src/dummy/dummyReader.js
 import team from "./team.json";
 import events from "./events.json";
+import modules from "./modules.json";
 import speakers from "./Speakers.json";
 import partners from "./partners.json";
 import config from "./config.json";
 import featureevents from "./featureevents.json";
+import featuremodules from "./featuremodules.json";
 
 export default {
   // Team
@@ -17,6 +19,15 @@ export default {
   getCustomEvents: () => events.filter((e) => e.type === "custom"),
   getFeatureEvents: () => {
     const item = featureevents.find((f) => f.id === "data");
+    return item ? item.eventid : [];
+  },
+
+  // Modules
+  getModules: () => modules ?? [],
+  getModule: (id) => modules.find((e) => e.id === id),
+  getCustomModules: () => modules.filter((e) => e.type === "custom"),
+  getFeatureModules: () => {
+    const item = featuremodules.find((f) => f.id === "data");
     return item ? item.eventid : [];
   },
 

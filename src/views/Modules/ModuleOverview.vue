@@ -298,9 +298,9 @@ export default {
   name: "ModuleOverview",
   props: ["moduleDetails"],
   data: () => ({
-    eventSpeakers: [],
+    moduleSpeakers: [],
     SpeakersData: [],
-    eventPartners: [],
+    modulePartners: [],
     partnersData: [],
   }),
   computed: {
@@ -313,7 +313,7 @@ export default {
   methods: {
     getAllSpeakers() {
       this.isLoading = true;
-      this.eventSpeakers = [];
+      this.moduleSpeakers = [];
       service
         .getAllSpeakers()
         .then((res) => {
@@ -322,11 +322,11 @@ export default {
             this.moduleDetails.speakers.map((s) => {
               this.SpeakersData.map((obj) => {
                 if (obj.id == s) {
-                  this.eventSpeakers.push(obj);
+                  this.moduleSpeakers.push(obj);
                 }
               });
             });
-            this.eventSpeakers = this.getRandomElements(this.eventSpeakers, 4);
+            this.moduleSpeakers = this.getRandomElements(this.moduleSpeakers, 4);
           }
           this.isLoading = false;
         })
@@ -337,7 +337,7 @@ export default {
     },
     getAllPartners() {
       this.isLoading = true;
-      this.eventPartners = [];
+      this.modulePartners = [];
       service
         .getAllPartners()
         .then((res) => {
@@ -346,11 +346,11 @@ export default {
             this.moduleDetails.partners.map((p) => {
               this.partnersData.map((obj) => {
                 if (obj.id == p) {
-                  this.eventPartners.push(obj);
+                  this.modulePartners.push(obj);
                 }
               });
             });
-            this.eventPartners = this.getRandomElements(this.eventPartners, 4);
+            this.modulePartners = this.getRandomElements(this.modulePartners, 4);
           }
           this.isLoading = false;
         })

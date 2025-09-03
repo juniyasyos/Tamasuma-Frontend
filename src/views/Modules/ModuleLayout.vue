@@ -71,7 +71,7 @@ export default {
       this.loader = true;
       this.moduleData = {};
       service
-        .getEvent(this.$route.params.id)
+        .getModule(this.$route.params.id)
         .then((res) => {
           if (res.success) {
             if (res.data.visible) {

@@ -32,10 +32,19 @@ const appservice = {
       data: member || {},
     };
   },
+
+  // func Events
   getEvent: createDummyResolver(dummyReader.getEvent),
   getAllEvents: createDummyResolver(dummyReader.getEvents),
   getFeaturesEvents: createDummyResolver(dummyReader.getFeatureEvents),
   getAllCustomEvents: createDummyResolver(dummyReader.getEvents),
+
+  // func Modules
+  getModule: createDummyResolver(dummyReader.getModule),
+  getAllModules: createDummyResolver(dummyReader.getModules),
+  getFeaturesModules: createDummyResolver(dummyReader.getFeatureModules),
+  getAllCustomModules: createDummyResolver(dummyReader.getModules),
+
   getAllSpeakers: createDummyResolver(dummyReader.getSpeakers),
   getSpeaker: createDummyResolver(dummyReader.getSpeaker),
   getAllPartners: createDummyResolver(dummyReader.getPartners),
