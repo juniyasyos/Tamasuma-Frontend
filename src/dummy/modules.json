@@ -653,7 +653,7 @@
     "links": { "registration": "https://tamasuma.local/registrasi/kewirausahaan", "youtube": "https://youtube.com/@tamasuma", "facebook": "", "meetup": "", "callforspeaker": "", "feedback": "" },
     "partners": ["edutech_asia"],
     "team": ["ayu_community"],
-    "speakers": ["dea_putri"],
+    "speakers": ["dea_putri", "budi_santoso"],
     "image": "https://placehold.co/800x400?text=Entrepreneurship",
     "thumbnail": "https://placehold.co/600x400?text=Startup",
     "hashtags": ["Entrepreneurship", "Vokasi"],

@@ -74,7 +74,8 @@
               class="google-font mb-2"
               style="font-size: 180%"
             >
-              {{ moduleDetails.name }} Details
+              <!-- {{ moduleDetails.name }} Details -->
+              Details Module
             </h1>
             <p class="google-font mb-3" style="font-size: 90%" v-html="moduleDetails.des"></p>
 
@@ -182,7 +183,7 @@
                 md="6"
                 cols="12"
                 class="ma-0 pa-0"
-                v-for="(item, index) in eventSpeakers"
+                v-for="(item, index) in moduleSpeakers"
                 :key="index"
               >
                 <v-list>
@@ -236,7 +237,7 @@
                 lg="4"
                 sm="6"
                 class="pa-1"
-                v-for="(item, i) in eventPartners"
+                v-for="(item, i) in modulePartners"
                 :key="i"
               >
                 <div
