@@ -7,6 +7,7 @@
           <WhatWeDo />
           <AboutCommunity class="mt-5" />
           <featureModules v-if="showFeatureModuleStatus" class="my-15" />
+          <HomeGallery class="my-10" />
           <partners class="my-15" />
         </v-col>
       </v-row>
@@ -25,6 +26,7 @@ export default {
     WhatWeDo: () => import("@/components/home/WhatWeDo"),
     AboutCommunity: () => import("@/components/home/AboutCommunity"),
     featureModules: () => import("@/components/home/FeaturesModules"),
+    HomeGallery: () => import("@/components/home/Gallery"),
     partners: () => import("@/components/common/Partners"),
   },
   data: () => ({

@@ -212,7 +212,7 @@
             </v-img>
           </div>
           <v-card-text class="pa-4">
-            <h3 class="google-font module-title mb-2 primary--text">{{ item.name }}</h3>
+            <h3 class="google-font module-title mb-2">{{ item.name }}</h3>
             <div class="google-font caption grey--text mb-3 d-flex align-center">
               <v-icon small class="mr-1" color="grey">mdi-calendar</v-icon>
               Mulai {{ convtDate ? convtDate(item.date) : new Date(item.date).toLocaleDateString('id-ID') }}
