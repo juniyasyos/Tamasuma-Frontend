@@ -2,292 +2,178 @@
   <v-main class="pa-0 ma-0 google-font">
     <v-container fluid class="py-0 my-0 mt-0">
       <v-row class="py-0 my-0" align="center" justify="center">
-        <v-col cols="12" md="12" class="pa-0">
+        <v-col cols="12" class="pa-0">
           <v-img
-            :src="getImgUrl(moduleDetails.image, 'eventbanner.jpg')"
-            :lazy-src="getImgUrl(moduleDetails.image, 'eventbanner.jpg')"
-            width="100%"
+            :src="moduleDetails.image || 'https://placehold.co/1200x360?text=Module'"
+            height="480"
             cover
-            style="border-radius: 17px"
-            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.3)"
-            height="380px"
+            class="rounded-xl hero-img"
+            gradient="to bottom, rgba(0,0,0,.2), rgba(0,0,0,.55)"
           >
             <template v-slot:placeholder>
               <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                <v-progress-circular indeterminate color="grey lighten-5" />
               </v-row>
             </template>
-            <v-card-title class="fill-height align-end google-font pb-5 white--text">
-              <div class="pa-5">
-                <p class="my-0" style="font-size: 150%">
-                  {{ moduleDetails.name }}
-                </p>
-                <p class="my-0 my-n1" style="font-size: 80%">
-                  {{ config.generalConfig.name }}
-                </p>
-                <!-- <br> -->
-                <p class="my-0 my-n2" style="font-size: 70%">
-                  {{ moduleDetails.date }}
-                </p>
+            <div class="hero-overlay">
+              <div class="hero-header">
+                <h1 class="white--text hero-title">{{ moduleDetails.name }}</h1>
+                <p class="white--text hero-sub">{{ brandName }} • Mulai {{ convtDate(moduleDetails.date) }}</p>
+                <div class="chip-row">
+                  <v-chip small outlined color="white" text-color="white" class="mr-2 mb-2">
+                    <v-icon left small color="white">mdi-signal</v-icon>
+                    {{ moduleDetails.difficulty || 'Umum' }}
+                  </v-chip>
+                  <v-chip small outlined color="white" text-color="white" class="mr-2 mb-2">
+                    <v-icon left small color="white">mdi-translate</v-icon>
+                    {{ (moduleDetails.language || 'id').toUpperCase() }}
+                  </v-chip>
+                  <v-chip v-if="moduleDetails.durationHours" small outlined color="white" text-color="white" class="mr-2 mb-2">
+                    <v-icon left small color="white">mdi-timer</v-icon>
+                    {{ moduleDetails.durationHours }} jam
+                  </v-chip>
+                </div>
               </div>
-            </v-card-title>
-            <v-layout slot="placeholder" fill-height align-center justify-center ma-0>
-              <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-            </v-layout>
+            </div>
           </v-img>
         </v-col>
-        <v-col
-          cols="12"
-          md="12"
-          class="pa-md-5 pa-3 mt-n3"
-          :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-light'"
-        >
-          <v-container fluid>
-            <p class="py-3" style="">
-              <span class="mr-5 my-auto"
-                ><v-icon class="mr-1 mb-1">mdi-calendar</v-icon
-                >{{ convtDate(moduleDetails.date) }}</span
-              >
-              <span class="mr-5 my-auto"
-                ><v-icon class="mr-1 mb-1">mdi-clock-outline</v-icon
-                >{{ moduleDetails.time.starttime }} - {{ moduleDetails.time.endtime }}</span
-              >
-              <span class="mr-5 my-auto"
-                ><v-icon class="mr-1 mb-1">mdi-map-marker-outline</v-icon
-                ><a
-                  target="_blank"
-                  style="text-decoration: none"
-                  :href="moduleDetails.venue.googlemapsurl"
-                  >{{ moduleDetails.venue.name }}</a
-                ></span
-              >
 
-              <span class="float-right" v-for="(item, i) in moduleDetails.hashtags" :key="i">
-                <v-chip class="mr-1" :href="'https://twitter.com/hashtag/' + item" target="_blank"
-                  >#{{ item }}</v-chip
-                >
-              </span>
-            </p>
+        <v-col cols="12" class="pa-0">
+          <v-sheet :color="themeSheetColor" rounded="xl" class="pa-5 mt-4">
+            <v-row class="mb-1" align="center">
+              <v-col cols="12" md="8" class="py-2">
+                <div class="meta-row">
+                  <span class="mr-5 d-inline-flex align-center">
+                    <v-icon class="mr-1">mdi-calendar</v-icon>{{ convtDate(moduleDetails.date) }}
+                  </span>
+                  <span class="mr-5 d-inline-flex align-center" v-if="moduleDetails.time">
+                    <v-icon class="mr-1">mdi-clock-outline</v-icon>{{ moduleDetails.time.starttime }} - {{ moduleDetails.time.endtime }}
+                  </span>
+                  <span class="mr-5 d-inline-flex align-center" v-if="moduleDetails.venue">
+                    <v-icon class="mr-1">mdi-map-marker-outline</v-icon>
+                    <a :href="moduleDetails.venue.googlemapsurl" target="_blank" style="text-decoration:none">{{ moduleDetails.venue.name }}</a>
+                  </span>
+                </div>
+              </v-col>
+              <v-col cols="12" md="4" class="py-2 text-md-right">
+                <div class="d-flex flex-wrap justify-end">
+                  <v-chip
+                    v-for="(tag, i) in (moduleDetails.hashtags || [])"
+                    :key="'t'+i"
+                    small
+                    class="mr-1 mb-1"
+                    :href="'https://twitter.com/hashtag/' + tag"
+                    target="_blank"
+                  >
+                    #{{ tag }}
+                  </v-chip>
+                </div>
+              </v-col>
+            </v-row>
 
-            <h1
-              :class="this.$vuetify.theme.dark ? 'white--text' : 'grey--text text--darken-3'"
-              class="google-font mb-2"
-              style="font-size: 180%"
-            >
-              <!-- {{ moduleDetails.name }} Details -->
-              Details Module
-            </h1>
-            <p class="google-font mb-3" style="font-size: 90%" v-html="moduleDetails.des"></p>
+            <h2 class="section-title mb-2">Tentang Modul</h2>
+            <div class="mb-4 body-text" v-html="moduleDetails.des"></div>
 
-            <div class="mt-10">
+            <div class="action-row mt-6">
               <v-btn
-                color="primary"
-                dark
-                target="_blank"
-                rounded
-                depressed
-                v-if="moduleDetails.links.registration"
+                v-if="moduleDetails?.links?.registration"
                 :href="moduleDetails.links.registration"
-                class="mr-1 mb-1 aura-btn"
-                label
-                >Registration</v-btn
+                target="_blank"
+                color="white"
+                class="google-font primary--text mr-2 mb-2"
+                rounded
+                elevation="2"
               >
-              <!-- <v-btn
-                color="pink"
-                dark
-                rounded
-                depressed
-                target="_blank"
-                v-if="moduleDetails.links.meetup"
-                :href="moduleDetails.links.meetup"
-                class="mr-1 mb-1 aura-btn"
-                label
-                >Meetup</v-btn
-              > -->
+                <v-icon left color="primary">mdi-checkbox-marked-circle-outline</v-icon>
+                Daftar
+              </v-btn>
+              <v-btn v-else disabled color="white" class="mr-2 mb-2 grey--text text--darken-1" rounded elevation="0">
+                Pendaftaran belum dibuka
+              </v-btn>
 
-              <v-btn
-                color="orange"
-                dark
-                target="_blank"
-                rounded
-                depressed
-                v-if="moduleDetails.links.callforspeaker"
-                :href="moduleDetails.links.callforspeaker"
-                class="mr-1 mb-1"
-                label
-                >Call For Speakers</v-btn
-              >
+              <v-btn v-if="moduleDetails?.links?.callforspeaker" :href="moduleDetails.links.callforspeaker" target="_blank" rounded outlined class="mr-2 mb-2">
+                <v-icon left>mdi-bullhorn</v-icon>
+                Call For Speakers
+              </v-btn>
 
-              <!-- <v-btn
-                color="indigo"
-                dark
-                target="_blank"
-                rounded
-                depressed
-                v-if="moduleDetails.links.facebook"
-                :href="moduleDetails.links.facebook"
-                class="mr-1 mb-1"
-                label
-                >Facebook</v-btn
-              > -->
+              <v-btn v-if="moduleDetails?.links?.feedback" :href="moduleDetails.links.feedback" target="_blank" rounded outlined class="mr-2 mb-2">
+                <v-icon left>mdi-message-text-outline</v-icon>
+                Feedback
+              </v-btn>
 
-              <v-btn
-                color="success"
-                dark
-                target="_blank"
-                rounded
-                depressed
-                v-if="moduleDetails.links.feedback"
-                :href="moduleDetails.links.feedback"
-                class="mr-1 mb-1"
-                label
-                >Feedback</v-btn
-              >
-
-              <v-btn
-                color="red"
-                dark
-                target="_blank"
-                rounded
-                depressed
-                v-if="moduleDetails.links.youtube"
-                :href="moduleDetails.links.youtube"
-                class="mr-1 mb-1"
-                label
-                >Youtube
-
-                <v-icon right>mdi-youtube</v-icon></v-btn
-              >
+              <v-btn v-if="moduleDetails?.links?.youtube" :href="moduleDetails.links.youtube" target="_blank" rounded outlined class="mr-2 mb-2">
+                <v-icon left color="red">mdi-youtube</v-icon>
+                Youtube
+              </v-btn>
             </div>
-          </v-container>
+          </v-sheet>
         </v-col>
       </v-row>
     </v-container>
 
-    <v-container
-      fluid
-      class="aura-event-card mt-4 mb-5 d-none d-sm-block d-md-block d-lg-block"
-      :class="$vuetify.theme.dark ? 'aura-card-dark' : 'aura-card-light'"
-    >
-      <!-- Other Data -->
-      <v-row class="pa-3">
-        <v-col md="6" sm="6" class="pa-3">
-          <p><b>Speakers</b></p>
-          <v-container
-            fluid
-            class="pa-5"
-            :class="$vuetify.theme.dark ? 'aura-card-dark-secondary' : 'aura-card-white'"
-          >
+    <v-container fluid class="mt-4 mb-6">
+      <v-row>
+        <v-col md="6" cols="12" class="pb-4 pb-md-0">
+          <v-sheet :color="themeSheetColor" rounded="xl" class="pa-5">
+            <p class="mb-3 section-title">Speakers</p>
             <v-row>
-              <v-col
-                md="6"
-                cols="12"
-                class="ma-0 pa-0"
-                v-for="(item, index) in moduleSpeakers"
-                :key="index"
-              >
-                <v-list>
+              <v-col md="6" cols="12" class="pa-1" v-for="(item, index) in moduleSpeakers" :key="index">
+                <v-list two-line dense rounded>
                   <v-list-item>
                     <v-list-item-avatar>
-                      <v-img
-                        :src="
-                          checkExistance(item.image, 0)
-                            ? item.image
-                            : require('@/assets/img/donotremove/profile.jpg')
-                        "
-                      ></v-img>
+                      <v-img :src="checkExistance(item.image, 0) ? item.image : require('@/assets/img/donotremove/profile.jpg')" />
                     </v-list-item-avatar>
                     <v-list-item-content>
                       <div>
                         <p class="mb-1">{{ item.name }}</p>
-                        <p class="mb-0" style="font-size: 80%">
-                          {{ item.designation }}
-                        </p>
+                        <p class="mb-0" style="font-size: 80%">{{ item.designation }}</p>
                       </div>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list>
               </v-col>
             </v-row>
-            <v-row>
-              <v-col class="aura-event-container">
-                <v-btn
-                  class="aura-btn aura-speaker-card"
-                  dark
-                  depressed
-                  rounded
-                  :to="'/modules/' + $route.params.id + '/speakers'"
-                  >See more</v-btn
-                >
-              </v-col>
-            </v-row>
-          </v-container>
+            <div class="text-right mt-2">
+              <v-btn rounded text class="google-font" :to="'/modules/' + $route.params.id + '/speakers'">
+                Selengkapnya
+                <v-icon right>mdi-arrow-right</v-icon>
+              </v-btn>
+            </div>
+          </v-sheet>
         </v-col>
-        <v-col md="6" sm="6" class="pa-3">
-          <p><b>Partners</b></p>
-          <v-container
-            fluid
-            class="pa-5"
-            :class="$vuetify.theme.dark ? 'aura-card-dark-secondary' : 'aura-card-white'"
-          >
+
+        <v-col md="6" cols="12">
+          <v-sheet :color="themeSheetColor" rounded="xl" class="pa-5">
+            <p class="mb-3 section-title">Partners</p>
             <v-row class="pa-0" align="center" v-if="checkExistance(moduleDetails.partners, 0)">
-              <v-col
-                cols="6"
-                md="4"
-                lg="4"
-                sm="6"
-                class="pa-1"
-                v-for="(item, i) in modulePartners"
-                :key="i"
-              >
-                <div
-                  class="ma-1 px-2"
-                  style="background-color: white; border: 1px solid #e0e0e0; border-radius: 5px"
-                >
-                  <a :href="item.socialLinks.web" target="_blank">
-                    <v-tooltip bottom>
-                      <template v-slot:activator="{ on }">
-                        <v-img
-                          :src="getImgUrl(item.image, 'noimage.jpg')"
-                          :lazy-src="getImgUrl(item.image, 'noimage.jpg')"
-                          width="100%"
-                          contain
-                          style="border-radius: 5px"
-                          height="80px"
-                          v-on="on"
-                        >
-                          <template v-slot:placeholder>
-                            <v-row class="fill-height ma-0" align="center" justify="center">
-                              <v-progress-circular
-                                indeterminate
-                                color="grey lighten-5"
-                              ></v-progress-circular>
-                            </v-row>
-                          </template>
-                        </v-img>
-                      </template>
-                      <span class="google-font">{{ item.name }}</span>
-                    </v-tooltip>
-                  </a>
-                </div>
+              <v-col cols="6" sm="4" class="pa-2" v-for="(item, i) in modulePartners" :key="i">
+                <a :href="item.socialLinks.web" target="_blank" style="text-decoration:none">
+                  <v-img
+                    :src="getImgUrl(item.image, 'noimage.jpg')"
+                    :lazy-src="getImgUrl(item.image, 'noimage.jpg')"
+                    width="100%"
+                    height="80"
+                    contain
+                    class="rounded"
+                  >
+                    <template v-slot:placeholder>
+                      <v-row class="fill-height ma-0" align="center" justify="center">
+                        <v-progress-circular indeterminate color="grey lighten-5" />
+                      </v-row>
+                    </template>
+                  </v-img>
+                </a>
               </v-col>
             </v-row>
-            <v-row>
-              <v-col class="aura-event-container">
-                <v-btn
-                  class="aura-btn aura-partner-card"
-                  dark
-                  depressed
-                  rounded
-                  :to="'/modules/' + $route.params.id + '/partners'"
-                  >See more</v-btn
-                >
-              </v-col>
-            </v-row>
-          </v-container>
+            <div class="text-right mt-2">
+              <v-btn rounded text class="google-font" :to="'/modules/' + $route.params.id + '/partners'">
+                Selengkapnya
+                <v-icon right>mdi-arrow-right</v-icon>
+              </v-btn>
+            </div>
+          </v-sheet>
         </v-col>
       </v-row>
-      <!-- Other Data -->
     </v-container>
   </v-main>
 </template>
@@ -306,6 +192,12 @@ export default {
   }),
   computed: {
     ...mapState(["config"]),
+    brandName() {
+      return this.config?.generalConfig?.name || 'Tamasuma'
+    },
+    themeSheetColor() {
+      return this.$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-5'
+    }
   },
   mounted() {
     this.getAllSpeakers();
@@ -364,6 +256,27 @@ export default {
       const shuffled = arr.slice().sort(() => Math.random() - 0.5);
       return shuffled.slice(0, count);
     },
+    convtDate(d) {
+      try {
+        const date = new Date(d)
+        return date.toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' })
+      } catch (_) {
+        return d
+      }
+    },
   },
 };
 </script>
+
+<style scoped>
+.hero-img { position: relative; }
+.hero-overlay { position: absolute; inset: 0; display: flex; align-items: flex-end; }
+.hero-header { width: 100%; padding: 16px 20px 22px 20px; }
+.hero-title { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+.hero-sub { opacity: 0.9; margin-bottom: 12px; }
+.chip-row { display: flex; flex-wrap: wrap; }
+.section-title { font-weight: 650; font-size: 1.25rem; }
+.body-text { font-size: 0.98rem; opacity: 0.95; }
+.action-row .v-btn { transition: transform .15s ease; }
+.action-row .v-btn:hover { transform: translateY(-1px); }
+</style>
