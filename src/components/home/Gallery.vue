@@ -5,7 +5,7 @@
         <div>
           <p class="google-font mb-1 mt-0 section-title">Galeri Kegiatan</p>
           <p class="google-font mt-0 mb-0 section-subtitle">
-            Cuplikan kegiatan dan modul terbaru dari Tamasuma.
+            Cuplikan kegiatan terbaru dari Tamasuma.
           </p>
         </div>
       </v-col>
@@ -131,8 +131,8 @@ export default {
 
 /* Masonry columns */
 .masonry { column-count: 2; column-gap: 12px; }
-@media (min-width: 600px) { .masonry { column-count: 3; } }
-@media (min-width: 1264px) { .masonry { column-count: 4; } }
+@media (min-width: 600px) { .masonry { column-count: 2; } }
+@media (min-width: 1264px) { .masonry { column-count: 2; } }
 .masonry-item { break-inside: avoid; margin: 0 0 12px; display: inline-block; width: 100%; }
 
 /* Subtle zoom on image */
